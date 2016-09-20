@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160919030931) do
+ActiveRecord::Schema.define(version: 20160920222416) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,10 +39,11 @@ ActiveRecord::Schema.define(version: 20160919030931) do
   add_index "grupos", ["usuario_id"], name: "index_grupos_on_usuario_id", using: :btree
 
   create_table "horarios", force: :cascade do |t|
-    t.datetime "fecha_hora"
     t.integer  "duracion"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "dia"
+    t.time     "hora"
   end
 
   create_table "maestros", force: :cascade do |t|
@@ -67,7 +68,7 @@ ActiveRecord::Schema.define(version: 20160919030931) do
   add_index "registros", ["usuario_id"], name: "index_registros_on_usuario_id", using: :btree
 
   create_table "usuarios", id: false, force: :cascade do |t|
-    t.string   "matricula",  null: false
+    t.string   "matricula",                  null: false
     t.string   "correo"
     t.integer  "rol"
     t.string   "nombre"
@@ -75,6 +76,7 @@ ActiveRecord::Schema.define(version: 20160919030931) do
     t.string   "password"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "activado",   default: false
   end
 
 end
