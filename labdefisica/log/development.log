@@ -1,0 +1,119 @@
+  [1m[36m (12.6ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL) [0m
+  [1m[35m (2.2ms)[0m  CREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to DbSetup (20160919030931)
+  [1m[35m (0.1ms)[0m  BEGIN
+DEPRECATION WARNING: `#timestamps` was called without specifying an option for `null`. In Rails 5, this behavior will change to `null: false`. You should manually specify `null: true` to prevent the behavior of your existing migrations from changing. (called from block in change at /Users/OliverMendoza/LabDeFisica/labdefisica/db/migrate/20160919030931_db_setup.rb:10)
+  [1m[36m (2.3ms)[0m  [1mCREATE TABLE "usuarios" ("matricula" character varying NOT NULL, "correo" character varying, "rol" integer, "nombre" character varying, "apellidos" character varying, "password" character varying, "created_at" timestamp, "updated_at" timestamp) [0m
+DEPRECATION WARNING: `#timestamps` was called without specifying an option for `null`. In Rails 5, this behavior will change to `null: false`. You should manually specify `null: true` to prevent the behavior of your existing migrations from changing. (called from block in change at /Users/OliverMendoza/LabDeFisica/labdefisica/db/migrate/20160919030931_db_setup.rb:18)
+  [1m[35m (6.3ms)[0m  CREATE TABLE "registros" ("id" serial primary key, "usuario_id" integer, "grupo_id" integer, "maestro_id" integer, "materia" character varying, "created_at" timestamp, "updated_at" timestamp) 
+  [1m[36m (0.9ms)[0m  [1mCREATE  INDEX  "index_registros_on_usuario_id" ON "registros"  ("usuario_id")[0m
+  [1m[35m (0.9ms)[0m  CREATE  INDEX  "index_registros_on_grupo_id" ON "registros"  ("grupo_id")
+  [1m[36m (0.8ms)[0m  [1mCREATE  INDEX  "index_registros_on_maestro_id" ON "registros"  ("maestro_id")[0m
+DEPRECATION WARNING: `#timestamps` was called without specifying an option for `null`. In Rails 5, this behavior will change to `null: false`. You should manually specify `null: true` to prevent the behavior of your existing migrations from changing. (called from block in change at /Users/OliverMendoza/LabDeFisica/labdefisica/db/migrate/20160919030931_db_setup.rb:25)
+  [1m[35m (2.4ms)[0m  CREATE TABLE "calificaciones" ("id" serial primary key, "registro_id" integer, "calificacion" float, "numero_practica" integer, "created_at" timestamp, "updated_at" timestamp) 
+  [1m[36m (1.0ms)[0m  [1mCREATE  INDEX  "index_calificaciones_on_registro_id" ON "calificaciones"  ("registro_id")[0m
+DEPRECATION WARNING: `#timestamps` was called without specifying an option for `null`. In Rails 5, this behavior will change to `null: false`. You should manually specify `null: true` to prevent the behavior of your existing migrations from changing. (called from block in change at /Users/OliverMendoza/LabDeFisica/labdefisica/db/migrate/20160919030931_db_setup.rb:32)
+  [1m[35m (3.5ms)[0m  CREATE TABLE "maestros" ("id" serial primary key, "nombre" character varying, "apellidos" character varying, "materia" character varying, "created_at" timestamp, "updated_at" timestamp) 
+DEPRECATION WARNING: `#timestamps` was called without specifying an option for `null`. In Rails 5, this behavior will change to `null: false`. You should manually specify `null: true` to prevent the behavior of your existing migrations from changing. (called from block in change at /Users/OliverMendoza/LabDeFisica/labdefisica/db/migrate/20160919030931_db_setup.rb:40)
+  [1m[36m (3.6ms)[0m  [1mCREATE TABLE "grupos" ("id" serial primary key, "usuario_id" integer, "horario_id" integer, "salon" character varying, "lugares" integer, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35m (1.1ms)[0m  CREATE  INDEX  "index_grupos_on_usuario_id" ON "grupos"  ("usuario_id")
+  [1m[36m (1.3ms)[0m  [1mCREATE  INDEX  "index_grupos_on_horario_id" ON "grupos"  ("horario_id")[0m
+DEPRECATION WARNING: `#timestamps` was called without specifying an option for `null`. In Rails 5, this behavior will change to `null: false`. You should manually specify `null: true` to prevent the behavior of your existing migrations from changing. (called from block in change at /Users/OliverMendoza/LabDeFisica/labdefisica/db/migrate/20160919030931_db_setup.rb:46)
+  [1m[35m (3.5ms)[0m  CREATE TABLE "horarios" ("id" serial primary key, "fecha_hora" timestamp, "duracion" integer, "created_at" timestamp, "updated_at" timestamp) 
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20160919030931"]]
+  [1m[35m (1.0ms)[0m  COMMIT
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (4.5ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'calificaciones'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (4.0ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'grupos'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (3.4ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'horarios'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (3.2ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'maestros'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (3.2ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'registros'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (4.0ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'usuarios'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[36mUsuario Load (3.3ms)[0m  [1mSELECT "usuarios".* FROM "usuarios"[0m
+  [1m[35mHorario Load (17.9ms)[0m  SELECT "horarios".* FROM "horarios"
+  [1m[36mHorario Load (1.2ms)[0m  [1mSELECT  "horarios".* FROM "horarios" WHERE "horarios"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mHorario Load (2.7ms)[0m  SELECT "horarios".* FROM "horarios"
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (1.2ms)[0m  INSERT INTO "horarios" ("fecha_hora", "duracion", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["fecha_hora", "2016-09-20 22:13:01.868694"], ["duracion", 30], ["created_at", "2016-09-20 22:13:01.891397"], ["updated_at", "2016-09-20 22:13:01.891397"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35mHorario Load (14.1ms)[0m  SELECT "horarios".* FROM "horarios"
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to DbSetup (20160919030931)
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (8.4ms)[0m  DROP TABLE "horarios"
+  [1m[36m (1.6ms)[0m  [1mDROP TABLE "grupos"[0m
+  [1m[35m (1.2ms)[0m  DROP TABLE "maestros"
+  [1m[36m (1.2ms)[0m  [1mDROP TABLE "calificaciones"[0m
+  [1m[35m (1.5ms)[0m  DROP TABLE "registros"
+  [1m[36m (0.6ms)[0m  [1mDROP TABLE "usuarios"[0m
+  [1m[35mSQL (0.7ms)[0m  DELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = $1  [["version", "20160919030931"]]
+  [1m[36m (4.7ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.8ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
