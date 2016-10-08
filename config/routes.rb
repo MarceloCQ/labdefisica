@@ -15,6 +15,10 @@ Rails.application.routes.draw do
   # Example resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
       resources :usuarios
+      resources :grupos
+
+      get 'coordinador/inicio', to: 'coordinador#inicio', as: :inicio_coordinador_path
+
 
   # Example resource route with options:
   #   resources :products do

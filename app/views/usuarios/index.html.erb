@@ -2,3 +2,16 @@
   Matricula: <%= usuario.matricula %> </br>
   Email: <%= usuario.email %>
 <% end %>
+
+<h1 id="mytittle"> Sistema de inscripciones de Laboratorio de Fisica </h1>
+<h2 id="subTitulo"> Tec de Monterrey Campus Monterrey </h2>
+<table>
+  <% @usuarios.each do |usuario| %>
+  <tbody>
+  	<tr>
+  		<td><%= usuario.name %></th>
+  		<td><button type="button">Editar</button></td>
+  		<td><button type="button">Eliminar</button></td>
+  	</tr>
+  <% end %>
+</table>
