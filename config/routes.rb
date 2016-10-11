@@ -17,8 +17,7 @@ Rails.application.routes.draw do
       resources :usuarios
       resources :grupos
 
-      get 'coordinador/inicio', to: 'coordinador#inicio', as: :inicio_coordinador_path
-
+      get 'coordinador/inicio', to: 'coordinador#index', as: :inicio_coordinador_path
 
   # Example resource route with options:
   #   resources :products do

@@ -7,7 +7,7 @@ class GruposController < ApplicationController
     @grupo = Grupo.all
   end
 
-  def show 
+  def show
   end
 
   def create

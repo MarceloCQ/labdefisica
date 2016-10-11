@@ -1,5 +1,5 @@
-Hola, te acabas de loggear.
 <% if usuario_signed_in? %>
+  Hola, acabas de iniciar sesion
   <li>
   <%= link_to('Logout', destroy_usuario_session_path, :method => :delete) %>
   </li>
