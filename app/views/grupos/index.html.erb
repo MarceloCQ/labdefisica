@@ -1,0 +1,12 @@
+<h1 id="mytittle"> Sistema de inscripciones de Laboratorio de Fisica </h1>
+<h2 id="subTitulo"> Tec de Monterrey Campus Monterrey </h2>
+<table>
+  <% @grupo.each do |grupo| %>
+  <tbody>
+  	<tr>
+  		<td><%= grupo.name %></th>
+  		<td><button type="button">Editar</button></td>
+  		<td><button type="button">Eliminar</button></td>
+  	</tr>
+  <% end %>
+</table>
