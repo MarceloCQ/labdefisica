@@ -6,7 +6,7 @@ Devise.setup do |config|
   # confirmation, reset password and unlock tokens in the database.
   # Devise will use the `secret_key_base` as its `secret_key`
   # by default. You can change it below and use your own secret key.
-  # config.secret_key = '9be0a0940f265b5c2fdbffec2ca9c318323f11076d654d07a90da84881338b2b8e21427f346fd8db1759a28fe71c20d552c3d785e7de2aac8aedbf6b4e7d8bcb'
+  # config.secret_key = 'e26f6abffd49f5e601820b5d891e760d8036755a98766164e2cd1538942268f653957830b364bf527160c005ba98e077c262477e589e707d970d52b29c14870d'
 
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
@@ -34,7 +34,7 @@ Devise.setup do |config|
   # session. If you need permissions, you should implement that in a before filter.
   # You can also supply a hash where the value is a boolean determining whether
   # or not authentication should be aborted when the value is not present.
-  # config.authentication_keys = [:email]
+  config.authentication_keys = [:student_id]
 
   # Configure parameters from the request object used for authentication. Each entry
   # given should be a request method and it will automatically be passed to the
@@ -90,6 +90,12 @@ Devise.setup do |config|
   # from the server. You can disable this option at your own risk.
   # config.clean_up_csrf_token_on_authentication = true
 
+  # When false, Devise will not attempt to reload routes on eager load.
+  # This can reduce the time taken to boot the app but if your application
+  # requires the Devise mappings to be loaded during boot time the application
+  # won't boot properly.
+  # config.reload_routes = true
+
   # ==> Configuration for :database_authenticatable
   # For bcrypt, this is the cost for hashing the password and defaults to 11. If
   # using other algorithms, it sets how many times you want the password to be hashed.
@@ -102,7 +108,7 @@ Devise.setup do |config|
   config.stretches = Rails.env.test? ? 1 : 11
 
   # Set up a pepper to generate the hashed password.
-  # config.pepper = '6b3326102916b5c0e34affe07431c51cb3c3d3e63f8c016fefae8807ee9974833afcf46d8fc1994452adcdb652c563306493fffa284eac79daf80cd3119daa5e'
+  # config.pepper = 'c7cfa364802bd65ff480f9a8ab747d0190f5de084ca721f269a6bc90cf79ae1a8f7f53a4cd14d5c6d83ce03552f4c204eb2d974302b992db25eb5c28f6a18d52'
 
   # Send a notification email when the user's password is changed
   # config.send_password_change_notification = false

@@ -1,0 +1,11 @@
+h1 Sistema de inscripciones de Laboratorio de Fisica
+h2 Tec de Monterrey Campus Monterrey
+table
+  - @groups.each do |grupo|
+    tbody
+      tr
+        td = grupo.name
+        td
+          button type="button">Editar
+        td
+          button type="button">Eliminar
