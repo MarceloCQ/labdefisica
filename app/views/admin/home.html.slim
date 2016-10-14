@@ -3,11 +3,13 @@ div class="vertical-center"
     //h1#mytittle[class=""] Sistema de Inscripciones de Laboratorio de Fisica
     h3#dos[class=""] Tecnológico de Monterrey Campus Monterrey
     div class="container text-center cuerpo"
-      p class="mensaje" Bienvenido
-        i coordinador, elija una de las siguientes opciones:
-      br
-      br
-      button.btn.btn-primary.btn-lg#verGrupos[type="button"] Grupos
-      br
-      br
-      button.btn.btn-primary.btn-lg#verUsuarios type="button" Usuarios
+    br
+    p class="mensaje" Bienvenido coordinador, elija una de las siguientes opciones:
+    br
+    br
+    button.btn.btn-primary#groups-btn type="button"
+      = link_to groups_path
+        h1 Grupos
+    br
+    button.btn.btn-primary#users-btn type="button"
+        h1 Usuarios 
