@@ -15,15 +15,15 @@ class TimetablesController < ApplicationController
 
 
   def create
-    parametros = params["timetable"]
-
-
-
-    puts parametros
-    t = Timetable.new(parametros[":day"].to_i, parametros["start_time(1i)"].to_i, parametros["start_time(2i)"].to_i, parametros["start_time(3i)"].to_i, parametros["start_time(4i)"].to_i, parametros["start_time(5i)"].to_i,parametros["duration"].to_i)
-    
-    redirect_to "http://localhost:3000/admin/home"
-
+    tt = Timetable.new(timetable_params)
+    if tt.save
+      # Successful
+      binding.pry
+    else
+      binding.pry
+      # Unsuccessful
+    end
+    redirect_to :timetables
   end
 
   def edit
