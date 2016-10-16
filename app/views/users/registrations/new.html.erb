@@ -5,12 +5,12 @@
     <%= f.error_notification %>
 
     <div class="form-inputs">
-      <%= f.input :name, required: true, autofocus: true %>
-      <%= f.input :last_name, required: true, autofocus: true %>
-      <%= f.input :student_id, required: true, autofocus: true %>
-      <%= f.input :email, required: true, autofocus: true %>
-      <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
-      <%= f.input :password_confirmation, required: true %>
+      <%= f.input :name, label:"Nombre", required: true, autofocus: true %>
+      <%= f.input :last_name, label: "Apellido", required: true, autofocus: true %>
+      <%= f.input :student_id, label:"Matricula", required: true, autofocus: true %>
+      <%= f.input :email, label:"Correo", required: true, autofocus: true %>
+      <%= f.input :password, label:"Contraseña", required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
+      <%= f.input :password_confirmation, label:"Confirmar Contraseña", required: true %>
     </div>
 
     <div class="form-actions divSignUp">

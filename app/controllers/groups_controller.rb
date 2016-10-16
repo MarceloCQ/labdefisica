@@ -14,7 +14,9 @@ class GroupsController < ApplicationController
   end
 
   def create
-    @grupo = Group.new(params["grupo"])
+    @group = Group.new(params["group"])
+    @grupo.save()
+    redirect_to groups_path
   end
 
   def edit
