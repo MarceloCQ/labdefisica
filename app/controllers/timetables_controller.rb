@@ -18,9 +18,7 @@ class TimetablesController < ApplicationController
     tt = Timetable.new(timetable_params)
     if tt.save
       # Successful
-      binding.pry
     else
-      binding.pry
       # Unsuccessful
     end
     redirect_to :timetables
