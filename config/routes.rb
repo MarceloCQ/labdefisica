@@ -6,12 +6,15 @@ Rails.application.routes.draw do
   resources :teachers
   root 'teachers#index'
 
-  # Instructors 
+  # Instructors
   get 'instructor/home', to: 'instructors#home', as: :instructors_home_path
 
   # Admin
   get 'admin/home', to: 'admin#home', as: :admin_home_path
   resources :groups
+
+  # Timetables
+  resources :timetables
   # get 'groups/index', to: 'groups#index', as: :groups_index
   # get 'groups/new', to: 'groups#new', as: :new_group
   # get 'groups/edit/:id', to: 'groups#edit', as: :edit_group
