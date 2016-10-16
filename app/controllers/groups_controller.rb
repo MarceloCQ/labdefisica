@@ -14,8 +14,12 @@ class GroupsController < ApplicationController
   end
 
   def create
-    @group = Group.new(params["group"])
-    @grupo.save()
+    group = Group.new(group_parameters)
+    if group.save
+      # Successful
+    else
+      # Unsuccessful
+    end
     redirect_to groups_path
   end
 
@@ -30,5 +34,9 @@ class GroupsController < ApplicationController
 
   def verify_user
     render file: 'public/401.html', status: :unauthorized if current_user.role != 3
+  end
+
+  def group_parameters
+    params.require("group").permit(:timetable, :classroom, :seats, :user)
   end
 end
