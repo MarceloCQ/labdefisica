@@ -10,7 +10,7 @@
 <body>
 
 <%= render partial: '/layouts/navbar' if current_user %>
-<%= render partial: '/layouts/login_nav' if !current_user %>
+<%= render partial: '/layouts/_login_nav' if !current_user %>
 <% if notice %>
   <p class="alert alert-success"><%= notice %></p>
 <% end %>
