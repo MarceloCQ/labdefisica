@@ -6,7 +6,9 @@ table
       tr
         td = user.id
         td
-          button#editUser-btn type="button" Editar
+          button#edit-user-btn type="button"
+            = link_to edit_user_path(id: user.id)
+              h1 Editar
         td
           button type="button" Eliminar
 button.btn.btn-primary#usersnew-btn type="button" 
