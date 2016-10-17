@@ -1,7 +1,6 @@
 = simple_form_for @group do |f|
-  = f.association :timetable, label_method: :day
+  = f.association :timetable, label_method: :interpolate_day_time
   = f.association :user, label_method: :id
   = f.input :seats
   = f.input :classroom
   = f.button :submit
-
