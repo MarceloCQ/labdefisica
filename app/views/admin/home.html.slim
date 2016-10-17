@@ -1,7 +1,8 @@
 div class="vertical-center"
   div class="container-full text-center header"
-    h1#mytittle[class=""] Sistema de Inscripciones de Laboratorio de Fisica
+    //h1#mytittle[class=""] Sistema de Inscripciones de Laboratorio de Fisica
     h3#dos[class=""] Tecnológico de Monterrey Campus Monterrey
+    div class="container text-center cuerpo"
     br
     p class="mensaje" Bienvenido coordinador, elija una de las siguientes opciones:
     br
@@ -10,5 +11,6 @@ div class="vertical-center"
       = link_to groups_path
         h1 Grupos
     br
-    button.btn.btn-primary#users-btn type="button"
-        h1 Usuarios 
+    button.btn.btn-primary#users-btn type="button" 
+        = link_to users_path
+            h1 Usuarios 
