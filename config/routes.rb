@@ -5,15 +5,14 @@ Rails.application.routes.draw do
   }
   resources :teachers
   root 'teachers#index'
-
-  scope "/admin" do
-    resources :users
-  end
   
   # Instructors 
   get 'instructor/home', to: 'instructors#home', as: :instructors_home_path
 
   # Admin
+  scope "/admin" do
+    resources :users
+  end
   get 'admin/home', to: 'admin#home', as: :admin_home_path
   resources :groups
 

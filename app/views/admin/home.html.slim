@@ -1,16 +1,13 @@
-div class="vertical-center"
-  div class="container-full text-center header"
-    //h1#mytittle[class=""] Sistema de Inscripciones de Laboratorio de Fisica
-    h3#dos[class=""] Tecnológico de Monterrey Campus Monterrey
-    div class="container text-center cuerpo"
-    br
-    p class="mensaje" Bienvenido coordinador, elija una de las siguientes opciones:
-    br
-    br
-    button.btn.btn-primary#groups-btn type="button"
-      = link_to groups_path
-        h1 Grupos
-    br
-    button.btn.btn-primary#users-btn type="button" 
-        = link_to users_path
-            h1 Usuarios 
+section#admin-home 
+  div.vertical-center
+    div#admin-header.container-full.text-center
+      //h1#mytittle[class=""] Sistema de Inscripciones de Laboratorio de Fisica
+      h3 Tecnológico de Monterrey Campus Monterrey
+      div.container.text-center
+          p#admin-top-message Bienvenido coordinador, elija una de las siguientes opciones:
+      button.btn.btn-primary#groups-btn type="button"
+        = link_to groups_path
+          h1 Grupos
+      button.btn.btn-primary#users-btn type="button" 
+          = link_to users_path
+              h1 Usuarios 

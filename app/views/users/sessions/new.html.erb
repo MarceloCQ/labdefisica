@@ -1,16 +1,12 @@
-<div class="container well login">
-<h2 class="h2 login">Log in</h2>
-<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="form-inputs">
-    <%= f.input :student_id, required: true, autofocus: true %>
-    <%= f.input :password, required: false %>
-    <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+<section id="login-section">
+  <div class="container well">
+    <h2 class="login-title">Log in</h2>
+    <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <%= f.input :student_id, required: true, autofocus: true %>
+        <%= f.input :password, required: false %>
+        <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+        <%= f.button :submit, "Log in" %><br><br>
+        <%= render "users/shared/links" %>
+    <% end %>
   </div>
-
-  <div class="form-actions login">
-    <%= f.button :submit, "Log in" %><br><br>
-    <%= render "users/shared/links" %>
-  </div>
-
-<% end %>
-</div>
+</section>
