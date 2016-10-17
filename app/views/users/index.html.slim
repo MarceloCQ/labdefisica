@@ -1,15 +1,14 @@
-- @usuarios.each do |usuario|
-  h4 Matricula: #{usuario.matricula}
-  h4 Email: #{usuario.email}
-
-//h1 Sistema de inscripciones de Laboratorio de Fisica
+h1 Sistema de inscripciones de Laboratorio de Fisica
 h2 Tec de Monterrey Campus Monterrey
 table
-  - @usuarios.each do |usuario|
+  - @users.each do |user|
     tbody
       tr
-        td = usuario.name 
+        td = user.id
         td
-          button type="button" Editar
+          button#editUser-btn type="button" Editar
         td
           button type="button" Eliminar
+button.btn.btn-primary#usersnew-btn type="button" 
+  = link_to new_user_registration_path
+      h4 Agregar alumno
