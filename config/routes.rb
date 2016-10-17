@@ -6,7 +6,11 @@ Rails.application.routes.draw do
   resources :teachers
   root 'teachers#index'
 
-  # Instructors
+  scope "/admin" do
+    resources :users
+  end
+  
+  # Instructors 
   get 'instructor/home', to: 'instructors#home', as: :instructors_home_path
 
   # Admin

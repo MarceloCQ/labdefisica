@@ -27,6 +27,18 @@
   }
 }
 
+#groupsnew-btn {
+  width: 60%; 
+  margin-bottom: 5%;
+  height: 5%;
+  a:link {
+    color: white;
+  }
+  a:visited {
+    color: white;
+  }
+}
+
 #users-btn {
   width: 33%;
   margin-bottom: 5%;
@@ -38,4 +50,19 @@
   }
 }
 
+#usersnew-btn {
+  width: 33%; 
+  margin-bottom: 5%;
+  a:link {
+    color: white;
+  }
+  a:visited {
+    color: white;
+  }
+}
 
+#editUser-btn{
+ margin-right : 50%;
+
+
+}
