@@ -1,7 +1,9 @@
-div class="container"
+h1 class="center" Alta de Grupo
+div class="container well"
   = simple_form_for @group do |f|
-    = f.association :timetable, label_method: :interpolate_day_time
-    = f.association :user, label_method: :id
-    = f.input :seats
-    = f.input :classroom
-    = f.button :submit
+    = f.association :timetable, label_method: :interpolate_day_time, label: "Horario"
+    = f.association :user, label_method: :id, label: "Instructor"
+    = f.input :seats, label: "Lugares"
+    = f.input :classroom, label: "Salón"
+    div class="center"
+    	= f.button :submit, value: "Aceptar"

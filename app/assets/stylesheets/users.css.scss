@@ -1,6 +1,16 @@
 #users-index-section{
   #users-new-btn {
+  	a:hover, a:visited, a:link, a:active{ color: #FFF; }
     width: 33%; 
     margin-bottom: 5%;
   }  
+}
+
+.center {
+	text-align: center;
+}
+
+.logo-header {
+	width: 200px;
+	margin-top: 25px;
 }
