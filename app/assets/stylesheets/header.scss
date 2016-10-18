@@ -1,5 +1,6 @@
 nav.navbar.navbar a.logout-button {
-    background-color: #22BB99;
+    //background-color: #22BB99; VERDE
+    background-color: #2299BB;
     border-radius: 22px;
     //box-sizing: border-box;
     border: 0.5px solid #119988;
@@ -9,19 +10,21 @@ nav.navbar.navbar a.logout-button {
 }
 
 nav.navbar.navbar a.logout-button:hover {
-  color:#EDEEED;
+  //color:#EDEEED; VERDE
+  color: #EDEEED;
 }
 
 nav.navbar.navbar a.logout-button:hover {
-  background-color:#11AA88;
+  background-color:#1188AA;
 }
 
 nav.navbar.navbar {
   padding-top: 0.5%;
   padding-bottom: 0.5%;
-  background-color: #118877;
-  color:white;
-  margin:auto;
+  //background-color: #118877;
+  background-color: #115588;
+  color: white;
+  margin: auto;
   margin-bottom: 0.2%;
 }
 
@@ -35,11 +38,11 @@ nav.navbar.navbar li a:hover {
 
 nav.navbar.navbar a.navbar-brand {
   color:#EEEEEE;
-  border-right: 2px solid #22BB99;
+  border-right: 2px solid #1188AA;
 }
 
 nav.navbar.navbar a.navbar-brand:hover {
-  color:#126633;
+  color:#44BBDD;
 }
 
 .nav.navbar-nav{
@@ -47,10 +50,10 @@ nav.navbar.navbar a.navbar-brand:hover {
 }
 
 ul.nav.navbar-nav li a{
-  border-right: 2px solid #22BB99;
+  //border-right: 2px solid #22BB99;
   text-align: center;
 }
 
 ul.nav.navbar-nav li a:hover{
-  color: #126633;
+  color: #44BBDD;
 }
