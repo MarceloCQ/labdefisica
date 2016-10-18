@@ -1,0 +1,50 @@
+nav.navbar.navbar a.logout-button {
+    background-color: #22BB99;
+    border-radius: 22px;
+    //box-sizing: border-box;
+    border: 0.5px solid #119988;
+    height: inherit;
+    font-weight: bold;
+}
+
+nav.navbar.navbar a.logout-button:hover {
+  color:#EDEEED;
+}
+
+nav.navbar.navbar a.logout-button:hover {
+  background-color:#11AA88;
+}
+
+nav.navbar.navbar {
+  padding-top: 0.5%;
+  padding-bottom: 0.5%;
+  background-color: #118877;
+  color:white;
+  margin:auto;
+  margin-bottom: 0.2%;
+}
+
+nav.navbar.navbar li a {
+  color:white;
+}
+
+nav.navbar.navbar li a:hover {
+  color:white;
+}
+
+nav.navbar.navbar a.navbar-brand {
+  color:#EEEEEE;
+  border-right: 2px solid #22BB99;
+}
+
+nav.navbar.navbar a.navbar-brand:hover {
+  color:#126633;
+}
+
+.nav.navbar-nav{
+  font-size:15px;
+}
+
+ul.nav.navbar-nav li a:hover{
+  color: #126633;
+}
