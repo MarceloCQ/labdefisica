@@ -14,11 +14,14 @@ class GroupsController < ApplicationController
   end
 
   def create
+    binding.pry
     group = Group.new(group_parameters)
     if group.save
       # Successful
+      binding.pry
     else
       # Unsuccessful
+      binding.pry
     end
     redirect_to groups_path
   end
@@ -28,6 +31,10 @@ class GroupsController < ApplicationController
   end
 
   def destroy
+    group = Group.find(params[:id])
+    group.destroy
+    # Alert deletion
+    redirect_to :groups
   end
 
   private
@@ -37,6 +44,6 @@ class GroupsController < ApplicationController
   end
 
   def group_parameters
-    params.require("group").permit(:timetable, :classroom, :seats, :user)
+    params.require("group").permit(:timetable_id, :classroom, :seats, :user_id)
   end
 end
