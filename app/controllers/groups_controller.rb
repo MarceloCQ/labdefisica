@@ -44,6 +44,6 @@ class GroupsController < ApplicationController
   end
 
   def group_parameters
-    params.require("group").permit(:timetable, :classroom, :seats, :user)
+    params.require("group").permit(:timetable_id, :classroom, :seats, :user_id)
   end
 end
