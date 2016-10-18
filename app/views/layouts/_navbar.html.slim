@@ -14,4 +14,4 @@ nav.navbar.navbar-default
         li
           a Bienvenido #{current_user.name}
       ul.nav.navbar-nav.navbar-right
-        li = link_to "Sign out", destroy_user_session_path, method: :delete
+        li class="login-button" = link_to "Sign out", destroy_user_session_path, class: ('logout-button'),method: :delete
