@@ -1,30 +1,28 @@
 section#users-index-section
-div class=["container center"]
-  h1 Usuarios
-  table class=["table"]
-    thead
-      tr
-        th = "Matrícula"
-        th = "Nombres"
-        th = "Apellidos"
-        th = "Correo"
-        th = "Rol"
-        th = "Editar"
-        th = "Eliminar"
-    tbody
-    - @users.each do |user|     
+  div class=["container center"]
+    h1 Usuarios
+    table class=["table"]
+      thead
         tr
-          td = user.id
-          td = user.name
-          td = user.last_name
-          td = user.email
-          td = user.role
-          td
-            button#edit-user-btn type="button"
+          th = "Matrícula"
+          th = "Nombres"
+          th = "Apellidos"
+          th = "Correo"
+          th = "Rol"
+          th = "Editar"
+          th = "Eliminar"
+      tbody
+      - @users.each do |user|     
+          tr
+            td = user.id
+            td = user.name
+            td = user.last_name
+            td = user.email
+            td = user.role
+            td
               = link_to edit_user_path(id: user.id)
-                h1 Editar
-          td
-            button type="button" Eliminar
-  button.btn.btn-primary#users-new-btn type="button" 
+                button.btn.btn-default Editar
+            td
+              button.btn.btn-danger Eliminar
     = link_to new_user_registration_path
-        h4 Agregar alumno
+      button.btn.btn-default#users-new-btn Agregar alumno
