@@ -1,15 +1,28 @@
-- @usuarios.each do |usuario|
-  h4 Matricula: #{usuario.matricula}
-  h4 Email: #{usuario.email}
-
-//h1 Sistema de inscripciones de Laboratorio de Fisica
-h2 Tec de Monterrey Campus Monterrey
-table
-  - @usuarios.each do |usuario|
-    tbody
-      tr
-        td = usuario.name 
-        td
-          button type="button" Editar
-        td
-          button type="button" Eliminar
+section#users-index-section
+  div class=["container center"]
+    h1 Usuarios
+    table class=["table"]
+      thead
+        tr
+          th = "Matrícula"
+          th = "Nombres"
+          th = "Apellidos"
+          th = "Correo"
+          th = "Rol"
+          th = "Editar"
+          th = "Eliminar"
+      tbody
+      - @users.each do |user|     
+          tr
+            td = user.id
+            td = user.name
+            td = user.last_name
+            td = user.email
+            td = user.role
+            td
+              = link_to edit_user_path(id: user.id)
+                button.btn.btn-default Editar
+            td
+              button.btn.btn-danger Eliminar
+    = link_to new_user_registration_path
+      button.btn.btn-default#users-new-btn Agregar alumno

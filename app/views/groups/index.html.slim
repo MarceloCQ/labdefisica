@@ -1,11 +1,32 @@
-h1 Sistema de inscripciones de Laboratorio de Fisica
-h2 Tec de Monterrey Campus Monterrey
-table
-  - @groups.each do |grupo|
-    tbody
-      tr
-        td = grupo.name
-        td
-          button type="button">Editar
-        td
-          button type="button">Eliminar
+section#groups-index
+  div class=["container center"]
+    h1 Grupos
+    table class=["table"]
+      thead
+        tr 
+          th = "Id"
+          th = "Salon"
+          th = "Lugares"
+          th = "Día"
+          th = "Horario"
+          th = "Instructor"
+          th = "Editar"
+          th = "Eliminar"
+      tbody
+      - @groups.each do |group|   
+        tr
+          td = group.id
+          td = group.classroom
+          td = group.seats
+          td = group.timetable.day_i18n
+          td = group.timetable.start_time.strftime("%H:%M")
+          td = group.user.name
+          td
+            button.btn.btn-default Editar
+          td
+            = link_to group_path(id: group.id), method: :delete
+              button.btn.btn-danger Eliminar
+    br
+    = link_to new_group_path
+      button.btn.btn-default#add-group-btn Nuevo grupo
+    	

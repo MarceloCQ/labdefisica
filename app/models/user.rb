@@ -6,6 +6,10 @@ class User < ActiveRecord::Base
   has_one :record, inverse_of: :user
   has_many :groups, inverse_of: :user
 
+  def full_name
+    "#{name} #{last_name}"
+  end
+
   # before_create :mail_construction
 
   # private
