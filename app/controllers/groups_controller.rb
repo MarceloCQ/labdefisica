@@ -14,14 +14,11 @@ class GroupsController < ApplicationController
   end
 
   def create
-    binding.pry
     group = Group.new(group_parameters)
     if group.save
       # Successful
-      binding.pry
     else
       # Unsuccessful
-      binding.pry
     end
     redirect_to groups_path
   end
