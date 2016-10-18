@@ -6,7 +6,7 @@ class TimetablesController < ApplicationController
   end
 
   def index
-    @timetable = Timetable.all
+    @timetables = Timetable.all
   end
 
   def show
