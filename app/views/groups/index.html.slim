@@ -1,13 +1,27 @@
-h1 Grupos
-table
-  - @groups.each do |group|
+div class=["container center"]
+  h1 Grupos
+  table class=["table"]
+    thead
+      tr 
+        th = "Id"
+        th = "Salon"
+        th = "Lugares"
+        th = "Horario"
+        th = "Instructor"
+        th = "Editar"
+        th = "Eliminar"
     tbody
+  - @groups.each do |group|   
       tr
         td = group.id
+        td = group.classroom
+        td = group.seats
+        td = group.horario
+        td = group.instructor.name
         td
           button type="button">Editar
         td
           button type="button">Eliminar
-button.btn.btn-primary#groups-add-group-btn type="button"
-	= link_to new_group_path
-		h4 Agregar nuevo grupo
+  button.btn.btn-primary#groups-add-group-btn type="button"
+  	= link_to new_group_path
+  		h4 Agregar nuevo grupo
