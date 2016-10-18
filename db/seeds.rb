@@ -5,9 +5,9 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-User.create!(student_id: 1, email: 'student@itesm.mx', password:'123456', password_confirmation:'123456')
-User.create!(student_id: 2, email: 'instructor@itesm.mx', password:'123456', password_confirmation:'123456', role: 2)
-User.create!(student_id: 3, email: 'admin@itesm.mx', password:'123456', password_confirmation:'123456', role: 3)
+User.create!(student_id: 1, name: 'Estudiante Pedro', email: 'student@itesm.mx', password:'123456', password_confirmation:'123456')
+User.create!(student_id: 2, name: 'Instructor Jorge', email: 'instructor@itesm.mx', password:'123456', password_confirmation:'123456', role: 2)
+User.create!(student_id: 3, name: 'Quetzal', email: 'admin@itesm.mx', password:'123456', password_confirmation:'123456', role: 3)
 # Timetables
 ## Monday
 Timetable.create(day: 0, start_time: '2016-01-01 07:00:00', duration: 60)
