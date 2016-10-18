@@ -10,7 +10,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # POST /resource
   def create
     build_resource(sign_up_params)
-
     resource.save
     yield resource if block_given?
     if resource.persisted?
@@ -26,7 +25,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     else
       clean_up_passwords resource
       set_minimum_password_length
-      check_role
+      redirect_to :new_user_registration
     end
   end
 
@@ -64,7 +63,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # If you have extra params to permit, append them to the sanitizer.
   def configure_sign_up_params
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:student_id, :email])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:student_id, :name, :last_name])
   end
 
   # If you have extra params to permit, append them to the sanitizer.
