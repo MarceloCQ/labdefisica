@@ -1,12 +1,14 @@
 Rails.application.routes.draw do
+  root :to => 'rolehome#index'
+
   devise_for :users, controllers: {
     sessions: 'users/sessions',
     registrations: 'users/registrations'
   }
   resources :teachers
-  root 'teachers#index'
-  
-  # Instructors 
+  #root 'teachers#index'
+
+  # Instructors
   get 'instructor/home', to: 'instructors#home', as: :instructors_home_path
 
   # Admin
