@@ -16,6 +16,9 @@ Rails.application.routes.draw do
   get 'admin/home', to: 'admin#home', as: :admin_home_path
   resources :groups
 
+  get 'user/home', to: 'user#home', as: :user_home_path
+
+
   # Timetables
   resources :timetables
   # get 'groups/index', to: 'groups#index', as: :groups_index

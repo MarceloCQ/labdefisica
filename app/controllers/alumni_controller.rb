@@ -2,6 +2,7 @@ class AlumniController < ApplicationController
   before_filter :verify_user
 
   def home
+  	@groups = Group.all
   end
 
   private
