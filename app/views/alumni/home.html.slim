@@ -7,28 +7,23 @@ section#alumni-home
           p#alumni-top-message Bienvenido alumno, elija su materia y maestro:
       br
       br
-      / label Materias:
-      .btn-group
-        button.btn.btn-primary.dropdown-toggle#alumni-btn data-toggle="dropdown" type="button"
-          | Materias
-          span.caret
-        ul.dropdown-menu.scrollable-menu#dpmaterias role="menu" 
-          li
-            a href="Fisica1"  Action
-          li
-            a href="#"  Another action
+      label#name-lb Materia:
+      select.selectpicker.btn-primary#alumni-btn
+        option Fisica I
+        option Fisica II
+        option Fisica III
       br
       br
-      / label Maestros:
-      .btn-group
-        button.btn.btn-primary.dropdown-toggle#alumni-btn data-toggle="dropdown" type="button" 
-          | Maestros
-          span.caret
-        ul.dropdown-menu.scrollable-menu#dpmaterias role="menu" 
-          li
-            a href="#"  Action
-          li
-            a href="#"  Another action
+
+
+      br
+      br
+      label#name-lb Maestro:
+      select.selectpicker.btn-primary#alumni-btn
+        option Oscar Garza
+        option Jose Luis
+        option Quetzal
+      br
       br
       br
       br
