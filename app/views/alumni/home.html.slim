@@ -1,28 +1,39 @@
-section#groups-index
-  div class=["container center"]
-    h1 Grupos
-    table class=["table"]
-      thead
-        tr 
-          th = "Id"
-          th = "Salon"
-          th = "Lugares"
-          th = "Día"
-          th = "Horario"
-          th = "Instructor"
-      tbody
-      - @groups.each do |group|   
-        tr
-          td = group.id
-          td = group.classroom
-          td = group.seats
-          td = group.timetable.day_i18n
-          td = group.timetable.start_time.strftime("%H:%M")
-          td = group.user.name
-          td
-            button.btn.btn-default Inscribir
-         
-    br
-    = link_to new_group_path
-      button.btn.btn-default#add-group-btn Nuevo grupo
-    	
+section#alumni-home 
+  div.vertical-center
+    div#alumni-header.container-full.text-center
+      //h1#mytittle[class=""] Sistema de Inscripciones de Laboratorio de Fisica
+      h3 Tecnológico de Monterrey Campus Monterrey
+      div.container.text-center
+          p#alumni-top-message Bienvenido alumno, elija su materia y maestro:
+      br
+      br
+      / label Materias:
+      .btn-group
+        button.btn.btn-primary.dropdown-toggle#alumni-btn data-toggle="dropdown" type="button"
+          | Materias
+          span.caret
+        ul.dropdown-menu.scrollable-menu#dpmaterias role="menu" 
+          li
+            a href="Fisica1"  Action
+          li
+            a href="#"  Another action
+      br
+      br
+      / label Maestros:
+      .btn-group
+        button.btn.btn-primary.dropdown-toggle#alumni-btn data-toggle="dropdown" type="button" 
+          | Maestros
+          span.caret
+        ul.dropdown-menu.scrollable-menu#dpmaterias role="menu" 
+          li
+            a href="#"  Action
+          li
+            a href="#"  Another action
+      br
+      br
+      br
+      br
+      br
+      button.btn.btn-primary#register-btn type="button" 
+        = link_to :alumni_registergroup_path
+          h3 Siguiente 

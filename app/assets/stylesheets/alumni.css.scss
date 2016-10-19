@@ -1,0 +1,34 @@
+#alumni-home{
+  a:hover, a:visited, a:link, a:active{ color: #FFF; }
+  #alumni-home-header {
+    background-color: #F8F8FF;
+    margin: auto;
+    width: 100%;
+    padding-top: 50px;
+    padding-bottom: 40px;
+    border-radius: .15em;
+    color: #333333;
+  }
+
+  #alumni-home-message {
+    margin-top: 20px;
+    font-size: 150%;
+    margin-bottom: 20px;
+  }
+
+  #alumni-btn {
+    width: 33%; 
+    min-width: 300px;
+    font-size: xx-large;
+  }
+
+  #register-btn {
+    width: 20%;
+    min-width: 50px;
+
+  }
+
+  #dpmaterias {
+    a:hover, a:visited, a:link, a:active{ color:  #000; }
+  }
+}
