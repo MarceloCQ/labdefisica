@@ -4,7 +4,6 @@ section#alumni-home
     table class=["table"]
       thead
         tr 
-          th = "Id"
           th = "Salon"
           th = "Lugares"
           th = "Día"
@@ -13,14 +12,13 @@ section#alumni-home
       tbody
       - @groups.each do |group|   
         tr
-          td = group.id
           td = group.classroom
           td = group.seats
           td = group.timetable.day_i18n
           td = group.timetable.start_time.strftime("%H:%M")
           td = group.user.name
           td
-            button.btn.btn-primary.glyphicon.glyphicon-ok#regist-btn Inscribir
+            button.btn.btn-primary.glyphicon.glyphicon-ok#regist-btn 
          
     br
     	

@@ -8,21 +8,21 @@ section#alumni-home
       br
       br
       label#name-lb Materia:
+      
       select.selectpicker.btn-primary#alumni-btn
-        option Fisica I
-        option Fisica II
-        option Fisica III
+        = options_from_collection_for_select @teacher, 'id', 'course' 
+        
       br
       br
-
-
       br
       br
       label#name-lb Maestro:
       select.selectpicker.btn-primary#alumni-btn
-        option Oscar Garza
-        option Jose Luis
-        option Quetzal
+        / = options_from_collection_for_select @teacher, 'id', 'name', 'last_name'
+
+        - @teacher.each do |t|
+          option value="#{t.id}" #{t.name} #{t.last_name}
+
       br
       br
       br

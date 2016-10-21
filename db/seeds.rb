@@ -208,3 +208,15 @@ Group.create(user_id: 2, timetable_id: 26, classroom: "A4-312", seats: 30)
 Group.create(user_id: 2, timetable_id: 27, classroom: "A3-221", seats: 30)
 Group.create(user_id: 2, timetable_id: 28, classroom: "A2-217", seats: 30)
 Group.create(user_id: 2, timetable_id: 29, classroom: "A2-314", seats: 30)
+
+
+
+#teachers 
+Teacher.create(name: "Oscar", last_name:"Garza", course:"Fisica I")
+
+
+
+
+
+
+

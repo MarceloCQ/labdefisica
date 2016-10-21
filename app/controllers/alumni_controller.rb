@@ -2,7 +2,8 @@ class AlumniController < ApplicationController
   before_filter :verify_user
 
   def home
-  	
+  	@teacher = Teacher.all
+
   end
 
   def registergroup
