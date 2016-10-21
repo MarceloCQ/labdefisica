@@ -1,15 +1,22 @@
 section#admin-home 
   div.vertical-center
+
     div#admin-header.container-full.text-center
+      ol.breadcrumb.text-left
+          li.active Inicio
+      div.container.text-left
+        
       //h1#mytittle[class=""] Sistema de Inscripciones de Laboratorio de Fisica
+      div.container
+        
       h3 Tecnológico de Monterrey Campus Monterrey
       div.container.text-center
           p#admin-top-message Bienvenido coordinador, elija una de las siguientes opciones:
-      button.btn.btn-primary#groups-btn type="button"
+      button.btn.btn-primary#admin-btn type="button"
         = link_to groups_path
           h1 Grupos
       br
       br
-      button.btn.btn-primary#users-btn type="button" 
+      button.btn.btn-primary#admin-btn type="button" 
           = link_to users_path
               h1 Usuarios 

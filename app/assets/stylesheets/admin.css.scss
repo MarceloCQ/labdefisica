@@ -1,10 +1,9 @@
 #admin-home{
-  a:hover, a:visited, a:link, a:active{ color: #FFF; }
+  #admin-btn a:hover, #admin-btn a:visited, #admin-btn a:link, #admin-btn a:active{ color: #FFF; }
   #admin-header {
     background-color: #F8F8FF;
     margin: auto;
     width: 100%;
-    padding-top: 50px;
     padding-bottom: 40px;
     border-radius: .15em;
     color: #333333;
@@ -18,12 +17,7 @@
     margin-bottom: 20px;
   }
 
-  #groups-btn {
-    width: 33%;
-    min-width: 300px;
-  }
-
-  #users-btn {
+  #admin-btn {
     width: 33%;
     min-width: 300px;
   }

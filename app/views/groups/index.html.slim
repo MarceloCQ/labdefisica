@@ -1,5 +1,10 @@
 section#groups-index
+  ol.breadcrumb
+      li
+        a href="/admin/home"  Inicio
+      li.active Grupos
   div class=["container center"]
+    
     h1 Grupos
     hr
     table class=["table table-striped"]
@@ -11,8 +16,7 @@ section#groups-index
           th = "Día"
           th = "Horario"
           th = "Instructor"
-          th = "Editar"
-          th = "Eliminar"
+          th = "Accion"
       tbody
       - @groups.each do |group|   
         tr
@@ -23,10 +27,16 @@ section#groups-index
           td = group.timetable.start_time.strftime("%H:%M")
           td = group.user.name
           td
-            button.btn.btn-default Editar
-          td
-            = link_to group_path(id: group.id), method: :delete
-              button.btn.btn-danger Eliminar
+            div.dropdown
+              button.btn.btn-default.dropdown-toggle aria-expanded="true" aria-haspopup="true" data-toggle="dropdown" type="button"
+                span.glyphicon.glyphicon-cog       
+                span.caret
+              ul.dropdown-menu aria-labelledby="dropdownMenu1" 
+                li
+                  a href="#"  Editar
+                li
+                  = link_to group_path(id: group.id), method: :delete 
+                    span Eliminar         
     br
     = link_to new_group_path
       button.btn.btn-default#add-group-btn Nuevo grupo
