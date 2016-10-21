@@ -6,15 +6,23 @@ class User < ActiveRecord::Base
   has_one :record, inverse_of: :user
   has_many :groups, inverse_of: :user
 
+  validates :student_id, presence: true
+  validates :student_id, uniqueness: { case_sensitive: false }
+
+
+  before_create :mail_construction
+
   def full_name
     "#{name} #{last_name}"
   end
 
-  # before_create :mail_construction
+  def email_required?
+    false
+  end
 
-  # private
+  private
 
-  # def mail_construction
-  #   self.email = "#{self.student_id}@itesm.mx"
-  # end
+  def mail_construction
+    self.email = "#{self.student_id}@itesm.mx"
+  end
 end
