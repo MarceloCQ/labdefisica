@@ -8,6 +8,8 @@
     padding-bottom: 40px;
     border-radius: .15em;
     color: #333333;
+    position: fixed;
+    height: 100%;
   }
 
   #admin-top-message {
@@ -17,7 +19,7 @@
   }
 
   #groups-btn {
-    width: 33%; 
+    width: 33%;
     min-width: 300px;
   }
 
