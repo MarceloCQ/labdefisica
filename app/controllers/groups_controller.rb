@@ -1,5 +1,5 @@
 class GroupsController < ApplicationController
-  # before_action :verify_user
+  before_action :verify_user, except[:index]
 
   def new
     @group = Group.new
@@ -35,6 +35,10 @@ class GroupsController < ApplicationController
   end
 
   private
+
+  def verify_user
+    render file: 'public/401.html', status: :unauthorized if current_user.role != 3
+  end
 
   def group_parameters
     params.require("group").permit(:timetable_id, :classroom, :seats, :user_id)
