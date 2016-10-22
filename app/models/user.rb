@@ -45,6 +45,12 @@ class User < ActiveRecord::Base
     false
   end
 
+  def retrieve_groups
+    return Group.all if self.role == 3
+    return Group.where(user_id: self.id) if self.role == 2
+    Group.all
+  end
+
   private
 
   def mail_construction

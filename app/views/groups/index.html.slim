@@ -3,8 +3,10 @@ section#groups-index
       li
         a href="/admin/home"  Inicio
       li.active Grupos
-  div class=["container center"]
-    
+  div.container.center
+    - if @current_user.role == 1
+      = link_to new_group_path
+        button.btn.btn-default#add-group-btn Nuevo grupo
     h1 Grupos
     hr
     table class=["table table-striped"]
@@ -16,9 +18,9 @@ section#groups-index
           th = "Día"
           th = "Horario"
           th = "Instructor"
-          th = "Accion"
+          th = "Acción"
       tbody
-      - @groups.each do |group|   
+      - @groups.each do |group|
         tr
           td = group.id
           td = group.classroom
@@ -27,17 +29,19 @@ section#groups-index
           td = group.timetable.start_time.strftime("%H:%M")
           td = group.user.name
           td
-            div.dropdown
-              button.btn.btn-default.dropdown-toggle aria-expanded="true" aria-haspopup="true" data-toggle="dropdown" type="button"
-                span.glyphicon.glyphicon-cog       
-                span.caret
-              ul.dropdown-menu aria-labelledby="dropdownMenu1" 
-                li
-                  a href="#"  Editar
-                li
-                  = link_to group_path(id: group.id), method: :delete 
-                    span Eliminar         
-    br
-    = link_to new_group_path
-      button.btn.btn-default#add-group-btn Nuevo grupo
-    	
+            - if @current_user.role == 3
+              div.dropdown
+                button.btn.btn-default.dropdown-toggle aria-expanded="true" aria-haspopup="true" data-toggle="dropdown" type="button"
+                  span.glyphicon.glyphicon-cog       
+                  span.caret
+                ul.dropdown-menu aria-labelledby="dropdownMenu1" 
+                  li
+                    a href="#"  Editar
+                  li
+                    = link_to group_path(id: group.id), method: :delete 
+                      span Eliminar
+            - elsif @current_user.role == 1
+              button.btn.btn-default Inscribir
+            - else
+              button.btn.btn-default Ver
+
