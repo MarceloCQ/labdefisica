@@ -1,12 +1,12 @@
 class GroupsController < ApplicationController
-  before_action :verify_user
+  before_action :verify_user, except[:index]
 
   def new
     @group = Group.new
   end
 
   def index
-    @groups = Group.all
+    @groups = current_user.retrieve_groups
   end
 
   def show 

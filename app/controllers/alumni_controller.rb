@@ -3,7 +3,6 @@ class AlumniController < ApplicationController
 
   def home
   	@teacher = Teacher.all
-
   end
 
   def registergroup
