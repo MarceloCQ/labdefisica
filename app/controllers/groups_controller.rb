@@ -16,9 +16,9 @@ class GroupsController < ApplicationController
   def create
     group = Group.new(group_parameters)
     if group.save
-      # Successful
+      flash[:notice] =  "Grupo guardado exitosamente"
     else
-      # Unsuccessful
+      flash[:alert] =  "Hubo un error. Vuelva a intentar"
     end
     redirect_to groups_path
   end

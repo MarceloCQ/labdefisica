@@ -8,16 +8,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
-
-<%= render partial: '/layouts/navbar' if current_user %>
-<%= render partial: '/layouts/login_nav' if !current_user %>
-<% if notice %>
-  <p class="alert alert-success" id="success-alert"><%= notice %></p>
-<% end %>
-<% if alert %>
-  <p class="alert alert-danger"><%= alert %></p>
-<% end %>
-<%= yield %>
+  <%= render partial: '/layouts/navbar' if current_user %>
+  <%= render partial: '/layouts/login_nav' if !current_user %>
+  <% if notice %>
+    <p class="alert alert-success" id="success-alert"><%= notice %></p>
+  <% end %>
+  <% if alert %>
+    <p class="alert alert-danger"><%= alert %></p>
+  <% end %>
+  <%= yield %>
 
 </body>
 </html>
