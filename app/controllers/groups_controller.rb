@@ -1,5 +1,5 @@
 class GroupsController < ApplicationController
-  before_action :verify_user, except[:index]
+  before_action :verify_user, only: [:new, :edit, :create, :destroy, :show]
 
   def new
     @group = Group.new

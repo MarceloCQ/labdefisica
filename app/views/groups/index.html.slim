@@ -4,7 +4,7 @@ section#groups-index
         a href="/admin/home"  Inicio
       li.active Grupos
   div.container.center
-    - if @current_user.role == 1
+    - if @current_user.role == 3
       = link_to new_group_path
         button.btn.btn-default#add-group-btn Nuevo grupo
     h1 Grupos
@@ -41,7 +41,7 @@ section#groups-index
                     = link_to group_path(id: group.id), method: :delete 
                       span Eliminar
             - elsif @current_user.role == 1
-              button.btn.btn-default Inscribir
+              button.btn.btn-primary.glyphicon.glyphicon-ok#regist-btn 
             - else
               button.btn.btn-default Ver
 

@@ -5,8 +5,8 @@ class AlumniController < ApplicationController
   	@teacher = Teacher.all
   end
 
-  def registergroup
-  	@groups = Group.all
+  def register_group
+  	redirect_to groups_path
   end
 
   private
