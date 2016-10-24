@@ -3,7 +3,9 @@ section#users-index-section
     li
       a href="/admin/home"  Inicio
     li.active Usuarios
-  div class=["container center"]
+  div.container.center
+    = link_to new_user_registration_path
+      button.btn.btn-default#users-new-btn Agregar alumno
     h1 Usuarios
     hr
     table class=["table table-striped"]
@@ -14,8 +16,7 @@ section#users-index-section
           th = "Apellidos"
           th = "Correo"
           th = "Rol"
-          th = "Editar"
-          th = "Eliminar"
+          th = "Acción"
       tbody
       - @users.each do |user|     
           tr
@@ -25,9 +26,15 @@ section#users-index-section
             td = user.email
             td = user.role
             td
-              = link_to edit_user_path(id: user.id)
-                button.btn.btn-default Editar
-            td
-              button.btn.btn-danger Eliminar
-    = link_to new_user_registration_path
-      button.btn.btn-default#users-new-btn Agregar alumno
+              - if @current_user.role == 3
+                div.dropdown
+                  button.btn.btn-default.dropdown-toggle aria-expanded="true" aria-haspopup="true" data-toggle="dropdown" type="button"
+                    span.glyphicon.glyphicon-cog       
+                    span.caret
+                  ul.dropdown-menu aria-labelledby="dropdownMenu1" 
+                    li
+                      a href="#"  Editar
+                    li
+                      = link_to user_path(id: user.id), method: :delete 
+                        span Eliminar
+
