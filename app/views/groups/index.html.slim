@@ -1,8 +1,10 @@
 section#groups-index
   ol.breadcrumb
+    - if @current_user.role == 3
       li
-        a href="/admin/home"  Inicio
-      li.active Grupos
+        = link_to :admin_home_path
+          | Inicio
+    li.active Grupos
   div.container.center
     - if @current_user.role == 3
       = link_to new_group_path
