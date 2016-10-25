@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: {
     sessions: 'users/sessions',
-    registrations: 'users/registrations'
+    registrations: 'users/registrations',
+
   }
   resources :teachers
   #root 'teachers#index'
@@ -9,6 +10,7 @@ Rails.application.routes.draw do
   devise_scope :user do
     root to: "users/sessions#new"
   end
+
 
   # Instructors
   get 'instructor/home', to: 'instructors#home', as: :instructors_home_path
