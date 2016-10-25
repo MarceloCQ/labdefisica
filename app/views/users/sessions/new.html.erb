@@ -1,12 +1,12 @@
 <section id="login-section">
   <div class="container well">
-    <h2 class="login-title">Iniciar Sesión</h2>
+    <h2 class="login-title">Inicio de sesión</h2>
     <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
         <%= f.input :student_id, label: "Matrícula", required: true, autofocus: true %>
         <%= f.input :password, label: "Contraseña", required: false %>
         <%= f.input :remember_me, label: "Recordarme", as: :boolean if devise_mapping.rememberable? %>
         <div class="center">
-            <%= f.button :submit, "Iniciar Sesión" %><br><br>
+            <%= f.button :submit, "Iniciar sesión" %><br><br>
             <%= render "users/shared/links" %>
         </div>
     <% end %>

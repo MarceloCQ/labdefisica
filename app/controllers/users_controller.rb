@@ -9,12 +9,12 @@ class UsersController < ApplicationController
     @users = User.all
   end
 
-  def show 
-    
+  def show
+
   end
 
   def create
-   
+
   end
 
   def edit
@@ -35,7 +35,7 @@ class UsersController < ApplicationController
     redirect_to :users
   end
 
-  
+
   private
 
   def verify_user

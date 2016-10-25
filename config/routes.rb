@@ -4,9 +4,13 @@ Rails.application.routes.draw do
     registrations: 'users/registrations'
   }
   resources :teachers
-  root 'teachers#index'
+  #root 'teachers#index'
 
-  # Instructors 
+  devise_scope :user do
+    root to: "users/sessions#new"
+  end
+
+  # Instructors
   get 'instructor/home', to: 'instructors#home', as: :instructors_home_path
 
   # Admin
