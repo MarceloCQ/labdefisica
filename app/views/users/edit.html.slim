@@ -1,12 +1,13 @@
-ol.breadcrumb
-	li
-	  a href="/admin/home"  Inicio
-	li
-	  a href="/admin/users"  Usuarios
-	li.active Editar Usuario
-h1 [class = "center"] Editar Usuario
-div [class = "container well changeRol"]
-	= simple_form_for @user do |f|
-		= f.input :role,collection: 1..3, label: "Rol"
-		div [class = "center"]
-			= f.button :submit, value: "Guardar"
+section#users-edit-section
+  ol.breadcrumb
+  	li
+  	  a href="/admin/home"  Inicio
+  	li
+  	  a href="/admin/users"  Usuarios
+  	li.active Editar Usuario
+  h1 [class = "center"] Editar Usuario
+  div [class = "container well change-role"]
+  	= simple_form_for @user do |f|
+  		= f.input :role,collection: 1..3, label: "Rol"
+  		div [class = "center"]
+  			= f.button :submit, value: "Guardar"

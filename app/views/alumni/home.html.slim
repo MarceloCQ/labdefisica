@@ -18,17 +18,13 @@ section#alumni-home
       br
       label#name-lb Maestro:
       select.selectpicker.btn-primary#alumni-btn
-        / = options_from_collection_for_select @teacher, 'id', 'name', 'last_name'
-
         - @teacher.each do |t|
           option value="#{t.id}" #{t.name} #{t.last_name}
-
       br
       br
       br
       br
       br
       br
-      button.btn.btn-primary#register-btn type="button" 
-        = link_to :alumni_register_group_path
-          h3 Siguiente 
+      = link_to :alumni_register_group_path, id: 'register-btn', class: 'btn btn-primary'
+        h3 Siguiente 

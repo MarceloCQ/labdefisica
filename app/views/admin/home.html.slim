@@ -12,11 +12,9 @@ section#admin-home
       h3 Tecnológico de Monterrey Campus Monterrey
       div.container.text-center
           p#admin-top-message Bienvenido coordinador, elija una de las siguientes opciones:
-      button.btn.btn-primary#admin-btn type="button"
-        = link_to groups_path
+      = link_to groups_path, class: 'btn btn-primary admin-btn'
           h1 Grupos
       br
       br
-      button.btn.btn-primary#admin-btn type="button" 
-          = link_to users_path
-              h1 Usuarios 
+      = link_to users_path, class: 'btn btn-primary admin-btn'
+          h1 Usuarios 

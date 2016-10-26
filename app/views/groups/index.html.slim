@@ -13,11 +13,11 @@ section#groups-index
         = link_to :alumni_home_path
           | Inicio
     li.active Grupos
-  div.container.center
+  div.container
     - if @current_user.role == 3
-      = link_to new_group_path
-        button.btn.btn-default#add-group-btn Nuevo grupo
-    h1 Grupos
+      = link_to new_group_path, id: 'add-group-btn', class: 'btn btn-default'
+        span Nuevo grupo
+    h1.center Grupos
     hr
     table class=["table table-striped"]
       thead
