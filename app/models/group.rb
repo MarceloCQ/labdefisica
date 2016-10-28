@@ -15,12 +15,14 @@
 class Group < ActiveRecord::Base
   belongs_to :timetable, inverse_of: :groups
   belongs_to :course, inverse_of: :groups
-  belongs_to :user, inverse_of: :groups
+  belongs_to :instructor, class_name: 'User', foreign_key: 'user_id' 
+  
   has_many :records, inverse_of: :group
+  has_many :students, class_name: 'User'
 
   validates :timetable, presence: true
   validates :course, presence: true
-  validates :user, presence: true
+  validates :instructor, presence: true
 
   validates :classroom, presence: true
   validates :seats, presence: true

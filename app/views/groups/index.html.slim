@@ -51,6 +51,7 @@ section#groups-index
                     = link_to group_path(id: group.id), method: :delete 
                       span Eliminar
             - elsif @current_user.role == 1
+              / = link_to 
               button.btn.btn-primary.glyphicon.glyphicon-ok#regist-btn 
             - else
               button.btn.btn-default Ver
