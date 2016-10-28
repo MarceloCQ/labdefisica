@@ -83,6 +83,7 @@ ActiveRecord::Schema.define(version: 20161005051827) do
 
   create_table "users", force: :cascade do |t|
     t.integer  "teacher_id"
+    t.integer  "group_id"
     t.string   "student_id",                             null: false
     t.string   "mail"
     t.integer  "role",                   default: 1
@@ -104,6 +105,7 @@ ActiveRecord::Schema.define(version: 20161005051827) do
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["group_id"], name: "index_users_on_group_id", using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   add_index "users", ["teacher_id"], name: "index_users_on_teacher_id", using: :btree
 
