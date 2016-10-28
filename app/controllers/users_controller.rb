@@ -38,7 +38,6 @@ class UsersController < ApplicationController
     redirect_to :users
   end
 
-
   private
 
   def verify_user

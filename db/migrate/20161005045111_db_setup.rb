@@ -2,6 +2,7 @@ class DbSetup < ActiveRecord::Migration
   def change
     create_table :users do |t|
       t.belongs_to :teacher, index: true
+      t.belongs_to :group, index: true
       t.string :student_id, null: false
       t.string :mail
       t.integer :role, default: 1 

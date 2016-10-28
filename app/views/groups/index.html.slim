@@ -51,7 +51,8 @@ section#groups-index
                     = link_to group_path(id: group.id), method: :delete 
                       span Eliminar
             - elsif @current_user.role == 1
-              button.btn.btn-primary.glyphicon.glyphicon-ok#regist-btn 
+              = link_to student_registration_path(id: group.id), method: :patch
+                button.btn.btn-primary.glyphicon.glyphicon-ok#regist-btn
             - else
               = link_to "Ver", group_path(id: group.id)
               / button.btn.btn-default Ver

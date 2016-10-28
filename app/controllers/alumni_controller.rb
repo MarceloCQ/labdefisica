@@ -7,7 +7,10 @@ class AlumniController < ApplicationController
   end
 
   def register_group
-  	redirect_to groups_path
+    binding.pry
+    group = Group.find(params["id"])
+    current_user.update(group_id: group.id)
+    redirect_to :alumni_home_path
   end
 
   private
