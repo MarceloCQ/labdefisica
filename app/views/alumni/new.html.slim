@@ -1,1 +1,16 @@
-sadiops
+ol.breadcrumb
+  li
+    a href="/admin/home"  Inicio
+  li
+    a href="/groups"  Alumnos
+  li.active Alta de Alumnos
+h1 class="center" Alta de Alumnos
+div class="container well"
+  = simple_form_for @alumno do |f|
+      = f.error_notification
+      = f.input :name, label:"Nombre", required: true, autofocus: true
+      = f.input :last_name, label: "Apellido", required: true, autofocus: true
+      = f.input :student_id, label:"Matricula", required: true, autofocus: true
+    div class="center"
+    	= f.button :submit, value: "Registrarse"
+

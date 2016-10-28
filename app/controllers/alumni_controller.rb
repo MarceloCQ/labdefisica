@@ -10,6 +10,10 @@ class AlumniController < ApplicationController
   	redirect_to groups_path
   end
 
+  def new
+    @alumno = User.new
+  end
+
   private
 
   def verify_user
