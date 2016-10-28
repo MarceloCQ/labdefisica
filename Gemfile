@@ -35,6 +35,7 @@ group :development, :test do
   gem 'byebug'
   gem 'pry', '~> 0.10.4'
   gem 'annotate'
+  gem 'rails-erd'
 end
 
 group :development do

@@ -1,9 +1,10 @@
 class DbSetup < ActiveRecord::Migration
   def change
     create_table :users do |t|
+      t.belongs_to :teacher, index: true
       t.string :student_id, null: false
       t.string :mail
-      t.integer :role
+      t.integer :role, default: 1 
       t.string :name
       t.string :last_name
       t.boolean :active, default: false
@@ -13,8 +14,6 @@ class DbSetup < ActiveRecord::Migration
     create_table :records do |t|
       t.belongs_to :user, index: true
       t.belongs_to :group, index: true
-      t.belongs_to :teacher, index: true
-      t.string :course
       t.timestamps
     end
 
@@ -28,13 +27,13 @@ class DbSetup < ActiveRecord::Migration
     create_table :teachers do |t|
       t.string :name
       t.string :last_name
-      t.string :course
       t.timestamps
     end
 
     create_table :groups do |t|
       t.belongs_to :user, index: true
       t.belongs_to :timetable, index: true
+      t.belongs_to :course, index: true
       t.string :classroom
       t.integer :seats
       t.timestamps
@@ -45,6 +44,17 @@ class DbSetup < ActiveRecord::Migration
       t.time :start_time
       t.integer :duration
       t.timestamps
-    end  
+    end
+
+    create_table :courses do |t|
+      t.string :name
+      t.timestamps
+    end
+
+    create_table :course_teachers do |t|
+      t.belongs_to :teacher, index: true
+      t.belongs_to :course, index: true
+      t.timestamps
+    end    
   end
 end

@@ -22,7 +22,10 @@ class UsersController < ApplicationController
   end
 
   def destroy
-
+    user = User.find(params[:id])
+    user.destroy
+    # Alert deletion
+    redirect_to :users
   end
 
   def update

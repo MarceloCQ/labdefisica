@@ -11,34 +11,49 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161005210445) do
+ActiveRecord::Schema.define(version: 20161005051827) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "course_teachers", force: :cascade do |t|
+    t.integer  "teacher_id"
+    t.integer  "course_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "course_teachers", ["course_id"], name: "index_course_teachers_on_course_id", using: :btree
+  add_index "course_teachers", ["teacher_id"], name: "index_course_teachers_on_teacher_id", using: :btree
+
+  create_table "courses", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "groups", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "timetable_id"
+    t.integer  "course_id"
     t.string   "classroom"
     t.integer  "seats"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
+  add_index "groups", ["course_id"], name: "index_groups_on_course_id", using: :btree
   add_index "groups", ["timetable_id"], name: "index_groups_on_timetable_id", using: :btree
   add_index "groups", ["user_id"], name: "index_groups_on_user_id", using: :btree
 
   create_table "records", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "group_id"
-    t.integer  "teacher_id"
-    t.string   "course"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   add_index "records", ["group_id"], name: "index_records_on_group_id", using: :btree
-  add_index "records", ["teacher_id"], name: "index_records_on_teacher_id", using: :btree
   add_index "records", ["user_id"], name: "index_records_on_user_id", using: :btree
 
   create_table "scores", force: :cascade do |t|
@@ -54,7 +69,6 @@ ActiveRecord::Schema.define(version: 20161005210445) do
   create_table "teachers", force: :cascade do |t|
     t.string   "name"
     t.string   "last_name"
-    t.string   "course"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -68,6 +82,7 @@ ActiveRecord::Schema.define(version: 20161005210445) do
   end
 
   create_table "users", force: :cascade do |t|
+    t.integer  "teacher_id"
     t.string   "student_id",                             null: false
     t.string   "mail"
     t.integer  "role",                   default: 1
@@ -90,5 +105,6 @@ ActiveRecord::Schema.define(version: 20161005210445) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+  add_index "users", ["teacher_id"], name: "index_users_on_teacher_id", using: :btree
 
 end

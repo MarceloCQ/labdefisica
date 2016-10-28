@@ -3,6 +3,7 @@ class AlumniController < ApplicationController
 
   def home
   	@teacher = Teacher.all
+    @courses = Course.all
   end
 
   def register_group

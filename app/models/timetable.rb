@@ -11,7 +11,7 @@
 #
 
 class Timetable < ActiveRecord::Base
-  has_many :groups, inverse_of: :timetale
+  has_many :groups, inverse_of: :timetable
   enum day: [:monday, :tuesday, :wednesday, :thursday, :friday, :saturday, :sunday]
 
   validates :day, presence: true

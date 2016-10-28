@@ -10,7 +10,8 @@ section#alumni-home
       label#name-lb Materia:
       
       select.selectpicker.btn-primary#alumni-btn
-        = options_from_collection_for_select @teacher, 'id', 'course' 
+        - @courses.each do |t|
+          option value="#{t.id}" #{t.name}
         
       br
       br

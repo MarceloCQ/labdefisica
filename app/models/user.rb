@@ -3,6 +3,7 @@
 # Table name: users
 #
 #  id                     :integer          not null, primary key
+#  teacher_id             :integer
 #  student_id             :string           not null
 #  mail                   :string
 #  role                   :integer          default(1)
@@ -28,12 +29,17 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+  
+  belongs_to :teacher, inverse_of: :users
   has_one :record, inverse_of: :user
   has_many :groups, inverse_of: :user
 
+  # validates :teacher_id, presence: true
+
   validates :student_id, presence: true
   validates :student_id, uniqueness: { case_sensitive: false }
-
+  validates :name, presence: true
+  validates :last_name, presence: true
 
   before_create :mail_construction
 

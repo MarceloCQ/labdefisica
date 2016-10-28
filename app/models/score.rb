@@ -14,6 +14,7 @@ class Score < ActiveRecord::Base
   belongs_to :record, inverse_of: :scores
   
   validates :record, presence: true
+  
   validates :score, presence: true
   validates :practice_no, presence: true
 end
