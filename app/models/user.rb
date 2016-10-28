@@ -31,8 +31,9 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   
   belongs_to :teacher, inverse_of: :users
+  belongs_to :group, inverse_of: :students
   has_one :record, inverse_of: :user
-  has_many :groups, inverse_of: :user
+  has_many :groups, inverse_of: :instructor
 
   # validates :teacher_id, presence: true
 
