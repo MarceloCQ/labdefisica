@@ -1,5 +1,5 @@
 class GroupsController < ApplicationController
-  before_action :verify_user, only: [:new, :edit, :create, :destroy, :show]
+  before_action :verify_user, only: [:new, :edit, :create, :destroy]
 
   def new
     @group = Group.new
@@ -9,8 +9,8 @@ class GroupsController < ApplicationController
     @groups = current_user.retrieve_groups
   end
 
-  def show 
-    # @group = Group.find(params["id"])
+  def show
+    @group = Group.find(params["id"])
   end
 
   def create

@@ -1,0 +1,8 @@
+div.container
+  h1 = "Grupo #{@group.id}"
+  h5 = "Salón: #{@group.classroom}"
+  h5 = "Lugares disponibles: #{@group.seats}" 
+  h5 = "Día: #{@group.timetable.day_i18n}"
+  h5 = "Horario: #{@group.timetable.start_time.strftime("%H:%M")}"
+
+p =  @group.users

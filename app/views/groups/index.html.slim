@@ -53,4 +53,5 @@ section#groups-index
             - elsif @current_user.role == 1
               button.btn.btn-primary.glyphicon.glyphicon-ok#regist-btn 
             - else
-              button.btn.btn-default Ver
+              = link_to "Ver", group_path(id: group.id)
+              / button.btn.btn-default Ver
