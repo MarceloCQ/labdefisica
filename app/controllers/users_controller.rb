@@ -33,7 +33,7 @@ class UsersController < ApplicationController
     if user.update_attributes(user_update_parameters)
       
     else
-      
+
     end
     redirect_to :users
   end
@@ -45,7 +45,7 @@ class UsersController < ApplicationController
   end
 
   def user_update_parameters
-    params.require("user").permit( :role, :group)
+    params.require("user").permit( :role, :group_id)
   end
 
 end

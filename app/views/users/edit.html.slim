@@ -10,7 +10,7 @@ section#users-edit-section
     = simple_form_for @user do |f|
       = f.input :role,collection: 1..3, label: "Rol"
       - if @user.role == 1
-        = f.input :group, collection: Group.all.pluck(:id)
+        = f.association :group, label_method: :id
       div [class = "center"]
         = f.button :submit, value: "Guardar"
         
