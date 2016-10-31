@@ -5,4 +5,20 @@ div.container
   h5 = "Día: #{@group.timetable.day_i18n}"
   h5 = "Horario: #{@group.timetable.start_time.strftime("%H:%M")}"
 
-p =  @group.users
+  table class=["table table-striped"]
+    thead
+      tr 
+        th = "Matricula"
+        th = "Nombre"
+        - num_practica = 1
+        - @group.students.first.record.scores.each do |practica|
+          th = "Practica #{num_practica}"
+          - num_practica += 1
+        
+    tbody
+    - @group.students.each do |student|
+      tr 
+        td = student.student_id
+        td = student.name
+        - student.record.scores.each do |practice|
+          td = practice.score

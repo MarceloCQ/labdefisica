@@ -1,6 +1,6 @@
 # This file should contain all the record creation needed to seed the database with its default values.
 # Users
-User.create!(student_id: 1, name: 'Estudiante Pedro', last_name: 'Rodriguez Lopez', email: 'student@itesm.mx', password:'123456', password_confirmation:'123456')
+User.create!(student_id: "A0111234", name: 'Estudiante Pedro', last_name: 'Rodriguez Lopez', email: 'student@itesm.mx', password:'123456', password_confirmation:'123456')
 User.create!(student_id: 2, name: 'Instructor Jorge', last_name: 'Hernandez Perez',  email: 'instructor@itesm.mx', password:'123456', password_confirmation:'123456', role: 2)
 User.create!(student_id: 4, name: 'Instructora Maribel', last_name: 'Pastrana',  email: 'instructor@itesm.mx', password:'123456', password_confirmation:'123456', role: 2)
 User.create!(student_id: 5, name: 'Instructora Lizzy', last_name: 'Palmer',  email: 'instructor@itesm.mx', password:'123456', password_confirmation:'123456', role: 2)
