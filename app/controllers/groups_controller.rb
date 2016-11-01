@@ -11,6 +11,8 @@ class GroupsController < ApplicationController
 
   def show
     @group = Group.find(params["id"])
+    records = Record.find_by group: params["id"]
+    @scores = records.scores
   end
 
   def create

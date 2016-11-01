@@ -7,13 +7,15 @@ div.container
 
   table class=["table table-striped"]
     thead
-      tr 
+      tr
         th = "Matricula"
         th = "Nombre"
         - num_practica = 1
-        - @group.students.first.record.scores.each do |practica|
-          th = "Practica #{num_practica}"
-          - num_practica += 1
+        p = @scores.first.practice_no
+        - if !@group.students.empty?
+              - @group.students.first.record.scores.each do |practica|
+                th = link_to "Practica #{num_practica}", groups_path
+                - num_practica += 1
         
     tbody
     - @group.students.each do |student|
