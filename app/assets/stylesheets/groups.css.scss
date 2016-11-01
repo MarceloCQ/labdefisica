@@ -1,6 +1,11 @@
 // Groups index
 #groups-index{
   tr{ text-align: left; }
+
+  #search-div {
+    width: 32%;
+    min-width: 300px;
+	}
 }
 
 // Groups show

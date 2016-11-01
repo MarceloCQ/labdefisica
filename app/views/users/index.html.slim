@@ -8,6 +8,9 @@ section#users-index-section
       button.btn.btn-default#users-new-btn Agregar alumno
     h1 Usuarios
     hr
+    #search-div.form-group.has-feedback
+      input.search-input.form-control placeholder="Buscar" type="text" /
+      i.glyphicon.glyphicon-search.form-control-feedback
     table class=["table table-striped"]
       thead
         tr
@@ -17,7 +20,7 @@ section#users-index-section
           th = "Correo"
           th = "Rol"
           th = "Acción"
-      tbody
+
       - @users.each do |user|     
           tr
             td = user.id

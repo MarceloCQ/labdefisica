@@ -3,3 +3,4 @@ $(document).ready (function(){
       $("#success-alert").slideUp(500);
   });
 });
+
