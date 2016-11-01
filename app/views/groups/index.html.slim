@@ -22,7 +22,6 @@ section#groups-index
     table class=["table table-striped"]
       thead
         tr 
-          th = "Id"
           th = "Salon"
           th = "Lugares"
           th = "Día"
@@ -32,12 +31,11 @@ section#groups-index
       tbody
       - @groups.each do |group|
         tr
-          td = group.id
           td = group.classroom
           td = group.seats
           td = group.timetable.day_i18n
           td = group.timetable.start_time.strftime("%H:%M")
-          td = group.user.name
+          td = group.instructor.name
           td
             - if @current_user.role == 3
               div.dropdown
