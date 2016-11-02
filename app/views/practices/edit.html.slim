@@ -1,0 +1,30 @@
+section#practice-edit
+  ol.breadcrumb
+    - if @current_user.role == 3
+      li
+        = link_to :admin_home_path
+          | Inicio
+    - if @current_user.role == 2
+      li
+        = link_to :instructors_home_path
+          | Inicio
+    - if @current_user.role == 1
+      li
+        = link_to :alumni_home_path
+          | Inicio
+    li.active Practica #x
+  div.container
+    h1.center Practica #x
+    table.table.table-striped
+      thead
+        tr
+          th = 'Matrícula'
+          th = 'Nombre'
+          th = 'Calificación'
+      tbody
+      - @practice.users.each_with_index do |user, i|
+        tr
+          td = user.student_id
+          td = "#{user.name} #{user.last_name}"
+          td
+            input name="student[][#{user.}]="

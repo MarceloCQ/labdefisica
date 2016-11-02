@@ -1,0 +1,28 @@
+section#group-show
+  ol.breadcrumb
+    - if current_user.role == 3
+      li
+        = link_to :admin_home_path
+          | Inicio
+    - if current_user.role == 2
+      li
+        = link_to :instructors_home_path
+          | Inicio
+    - if current_user.role == 1
+      li
+        = link_to :alumni_home_path
+          | Inicio
+    li.active Grupo #x
+  div.container
+    h1.center Grupo #x
+    p
+      strong Salón
+      = @group.classroom
+    p
+      strong Lugares
+      = @group.seats
+    p
+      strong Prácticas:
+      - @group.practices.each do |p|
+        p
+          = link_to "Practica ##{p.practice_no}: #{p.name}", edit_practice_path(id: p.id)

@@ -235,3 +235,11 @@ Group.create(user_id: 6, timetable_id: 26, classroom: "A4-312", seats: 30, cours
 Group.create(user_id: 6, timetable_id: 27, classroom: "A3-221", seats: 30, course_id: 3)
 Group.create(user_id: 6, timetable_id: 28, classroom: "A2-217", seats: 30, course_id: 3)
 Group.create(user_id: 6, timetable_id: 29, classroom: "A2-314", seats: 30, course_id: 3)
+
+# Practices
+Practice.create(group_id: 1, name: '3era Ley de Newton', practice_no: 1)
+Practice.create(group_id: 1, name: 'Tiro parabólico', practice_no: 1)
+Practice.create(group_id: 1, name: 'Peralte', practice_no: 1)
+Practice.create(group_id: 1, name: 'Ley de Ampere', practice_no: 1)
+Practice.create(group_id: 1, name: 'Circuitos', practice_no: 1)
+Practice.create(group_id: 1, name: 'Inducción Eléctrica', practice_no: 1)

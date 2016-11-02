@@ -5,23 +5,10 @@ class DbSetup < ActiveRecord::Migration
       t.belongs_to :group, index: true
       t.string :student_id, null: false
       t.string :mail
-      t.integer :role, default: 1 
+      t.integer :role, default: 1
       t.string :name
       t.string :last_name
       t.boolean :active, default: false
-      t.timestamps
-    end
-
-    create_table :records do |t|
-      t.belongs_to :user, index: true
-      t.belongs_to :group, index: true
-      t.timestamps
-    end
-
-    create_table :scores do |t|
-      t.belongs_to :record, index: true
-      t.float :score
-      t.integer :practice_no
       t.timestamps
     end
 
@@ -56,6 +43,14 @@ class DbSetup < ActiveRecord::Migration
       t.belongs_to :teacher, index: true
       t.belongs_to :course, index: true
       t.timestamps
-    end    
+    end
+
+    create_table :practices do |t|
+      t.belongs_to :group, index: true
+      t.belongs_to :user, index: true
+      t.integer :grade
+      t.string :name
+      t.integer :practice_no
+    end
   end
 end

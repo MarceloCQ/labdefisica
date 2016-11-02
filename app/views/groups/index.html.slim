@@ -45,9 +45,10 @@ section#groups-index
                 button.btn.btn-default.dropdown-toggle aria-expanded="true" aria-haspopup="true" data-toggle="dropdown" type="button"
                   span.glyphicon.glyphicon-cog       
                   span.caret
-                ul.dropdown-menu aria-labelledby="dropdownMenu1" 
+                ul.dropdown-menu aria-labelledby="dropdownMenu1"
                   li
-                    a href="#"  Editar
+                    = link_to edit_group_path(id: group.id)
+                      span Editar
                   li
                     = link_to group_path(id: group.id), method: :delete 
                       span Eliminar
@@ -55,4 +56,5 @@ section#groups-index
               = link_to student_registration_path(id: group.id), method: :patch
                 button.btn.btn-primary.glyphicon.glyphicon-ok#regist-btn
             - else
-              button.btn.btn-default Ver
+              = link_to group_path(id: group.id)
+                button.btn.btn-default Ver

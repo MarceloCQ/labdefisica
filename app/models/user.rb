@@ -34,8 +34,7 @@ class User < ActiveRecord::Base
   belongs_to :group, inverse_of: :students
   has_one :record, inverse_of: :user
   has_many :groups, inverse_of: :instructor
-
-  # validates :teacher_id, presence: true
+  has_many :practices, inverse_of: :user
 
   validates :student_id, presence: true
   validates :student_id, uniqueness: { case_sensitive: false }

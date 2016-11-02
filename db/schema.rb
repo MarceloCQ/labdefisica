@@ -46,25 +46,16 @@ ActiveRecord::Schema.define(version: 20161005051827) do
   add_index "groups", ["timetable_id"], name: "index_groups_on_timetable_id", using: :btree
   add_index "groups", ["user_id"], name: "index_groups_on_user_id", using: :btree
 
-  create_table "records", force: :cascade do |t|
-    t.integer  "user_id"
-    t.integer  "group_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+  create_table "practices", force: :cascade do |t|
+    t.integer "group_id"
+    t.integer "user_id"
+    t.integer "grade"
+    t.string  "name"
+    t.integer "practice_no"
   end
 
-  add_index "records", ["group_id"], name: "index_records_on_group_id", using: :btree
-  add_index "records", ["user_id"], name: "index_records_on_user_id", using: :btree
-
-  create_table "scores", force: :cascade do |t|
-    t.integer  "record_id"
-    t.float    "score"
-    t.integer  "practice_no"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "scores", ["record_id"], name: "index_scores_on_record_id", using: :btree
+  add_index "practices", ["group_id"], name: "index_practices_on_group_id", using: :btree
+  add_index "practices", ["user_id"], name: "index_practices_on_user_id", using: :btree
 
   create_table "teachers", force: :cascade do |t|
     t.string   "name"

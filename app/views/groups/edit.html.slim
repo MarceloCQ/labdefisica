@@ -1,5 +1,14 @@
-= simple_form_for @group do |f|
-  = f.input :usuario
-  = f.input :horario
-  = f.input :lugares
-  = f.button :submit
+section#group-edit-section
+  ol.breadcrumb
+    li
+      = link_to 'Inicio', :admin_home_path
+    li
+      = link_to 'Grupos', :groups
+    li.active Editar Grupo
+  h1.center Editar Grupo
+  div.container.well
+    = simple_form_for @group do |f|
+      = f.association :instructor
+      = f.association :timetable, label_method: :interpolate_day_time, label: 'Horario'
+      = f.input :seats, label: 'Lugares'
+      = f.button :submit, value: 'Guardar'
