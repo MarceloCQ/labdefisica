@@ -1,6 +1,10 @@
 class AlumniController < ApplicationController
   before_filter :verify_user
   def home
+    if current_user.group_id != nil
+        render :action => "homeaux"
+        @group = Group.find(current_user.id)
+    end
     @teacher = Teacher.all
     @courses = Course.all
   end
@@ -18,6 +22,7 @@ class AlumniController < ApplicationController
       Grade.create(practice_id: p.id, user_id: current_user.id)
     end
   end
+
 
   def verify_user
     render file: 'public/401.html', status: :unauthorized if current_user.role != 1
