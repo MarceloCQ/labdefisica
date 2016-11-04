@@ -1,0 +1,14 @@
+section#practice-new
+  ol.breadcrumb
+    li
+      a href="/groups"  Grupos
+    li 
+      = link_to "Grupo #{@group.id}", group_path(id: @group.id)
+    li.active Alta de Práctica
+  h1 class="center" Alta de Práctica
+  div class="container well"
+    = simple_form_for @practice, url: group_practices_path, method: 'post' do |f|
+      = f.input :practice_no
+      = f.input :name
+      = f.input :description
+      = f.submit class: 'btn btn-default'

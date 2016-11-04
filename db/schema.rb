@@ -32,6 +32,15 @@ ActiveRecord::Schema.define(version: 20161005051827) do
     t.datetime "updated_at"
   end
 
+  create_table "grades", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "practice_id"
+    t.integer "grade"
+  end
+
+  add_index "grades", ["practice_id"], name: "index_grades_on_practice_id", using: :btree
+  add_index "grades", ["user_id"], name: "index_grades_on_user_id", using: :btree
+
   create_table "groups", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "timetable_id"
@@ -48,14 +57,12 @@ ActiveRecord::Schema.define(version: 20161005051827) do
 
   create_table "practices", force: :cascade do |t|
     t.integer "group_id"
-    t.integer "user_id"
-    t.integer "grade"
     t.string  "name"
     t.integer "practice_no"
+    t.text    "description"
   end
 
   add_index "practices", ["group_id"], name: "index_practices_on_group_id", using: :btree
-  add_index "practices", ["user_id"], name: "index_practices_on_user_id", using: :btree
 
   create_table "teachers", force: :cascade do |t|
     t.string   "name"

@@ -4,14 +4,6 @@ section#groups-index
       li
         = link_to :admin_home_path
           | Inicio
-    - if @current_user.role == 2
-      li
-        = link_to :instructors_home_path
-          | Inicio
-    - if @current_user.role == 1
-      li
-        = link_to :alumni_home_path
-          | Inicio
     li.active Grupos
   div.container
     - if @current_user.role == 3

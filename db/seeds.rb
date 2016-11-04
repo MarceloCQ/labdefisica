@@ -1,11 +1,21 @@
 # This file should contain all the record creation needed to seed the database with its default values.
 # Users
+# Main roles
 User.create!(student_id: 1, name: 'Estudiante Pedro', last_name: 'Rodriguez Lopez', email: 'student@itesm.mx', password:'123456', password_confirmation:'123456')
 User.create!(student_id: 2, name: 'Instructor Jorge', last_name: 'Hernandez Perez',  email: 'instructor@itesm.mx', password:'123456', password_confirmation:'123456', role: 2)
+User.create!(student_id: 3, name: 'Quetzal', last_name: 'Apellido',  email: 'admin@itesm.mx', password:'123456', password_confirmation:'123456', role: 3)
+# Instructors
 User.create!(student_id: 4, name: 'Instructora Maribel', last_name: 'Pastrana',  email: 'instructor@itesm.mx', password:'123456', password_confirmation:'123456', role: 2)
 User.create!(student_id: 5, name: 'Instructora Lizzy', last_name: 'Palmer',  email: 'instructor@itesm.mx', password:'123456', password_confirmation:'123456', role: 2)
 User.create!(student_id: 6, name: 'Instructor Oliver', last_name: 'Mendoza',  email: 'instructor@itesm.mx', password:'123456', password_confirmation:'123456', role: 2)
-User.create!(student_id: 3, name: 'Quetzal', last_name: 'Apellido',  email: 'admin@itesm.mx', password:'123456', password_confirmation:'123456', role: 3)
+# Students
+User.create!(student_id: 7, name: 'Pedro', last_name: 'Rodriguez Lopez', password:'123456', password_confirmation:'123456', group_id: 1)
+User.create!(student_id: 8, name: 'Xochitl', last_name: 'Rodriguez Lopez', password:'123456', password_confirmation:'123456', group_id: 1)
+User.create!(student_id: 9, name: 'Hércules', last_name: 'Rodriguez Lopez', password:'123456', password_confirmation:'123456', group_id: 1)
+User.create!(student_id: 10, name: 'David', last_name: 'Rodriguez Lopez', password:'123456', password_confirmation:'123456', group_id: 1)
+User.create!(student_id: 11, name: 'Mauricio', last_name: 'Rodriguez Lopez', password:'123456', password_confirmation:'123456', group_id: 1)
+User.create!(student_id: 12, name: 'Pablo', last_name: 'Rodriguez Lopez', password:'123456', password_confirmation:'123456', group_id: 1)
+User.create!(student_id: 13, name: 'Juan', last_name: 'Rodriguez Lopez', password:'123456', password_confirmation:'123456', group_id: 1)
 
 # Timetables
 ## Monday
@@ -238,8 +248,8 @@ Group.create(user_id: 6, timetable_id: 29, classroom: "A2-314", seats: 30, cours
 
 # Practices
 Practice.create(group_id: 1, name: '3era Ley de Newton', practice_no: 1)
-Practice.create(group_id: 1, name: 'Tiro parabólico', practice_no: 1)
-Practice.create(group_id: 1, name: 'Peralte', practice_no: 1)
-Practice.create(group_id: 1, name: 'Ley de Ampere', practice_no: 1)
-Practice.create(group_id: 1, name: 'Circuitos', practice_no: 1)
-Practice.create(group_id: 1, name: 'Inducción Eléctrica', practice_no: 1)
+Practice.create(group_id: 1, name: 'Tiro parabólico', practice_no: 2)
+Practice.create(group_id: 1, name: 'Peralte', practice_no: 3)
+Practice.create(group_id: 1, name: 'Ley de Ampere', practice_no: 4)
+Practice.create(group_id: 1, name: 'Circuitos', practice_no: 5)
+Practice.create(group_id: 1, name: 'Inducción Eléctrica', practice_no: 6)

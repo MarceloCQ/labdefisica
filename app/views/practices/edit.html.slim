@@ -1,30 +1,14 @@
 section#practice-edit
   ol.breadcrumb
-    - if @current_user.role == 3
-      li
-        = link_to :admin_home_path
-          | Inicio
-    - if @current_user.role == 2
-      li
-        = link_to :instructors_home_path
-          | Inicio
-    - if @current_user.role == 1
-      li
-        = link_to :alumni_home_path
-          | Inicio
-    li.active Practica #x
-  div.container
-    h1.center Practica #x
-    table.table.table-striped
-      thead
-        tr
-          th = 'Matrícula'
-          th = 'Nombre'
-          th = 'Calificación'
-      tbody
-      - @practice.users.each_with_index do |user, i|
-        tr
-          td = user.student_id
-          td = "#{user.name} #{user.last_name}"
-          td
-            input name="student[][#{user.}]="
+    li
+      = link_to 'Grupos', :groups
+    li
+      = link_to "Grupo #{@group.id}", group_path(id: @group.id)
+    li.active Editar Práctica
+  h1.center Editar Práctica
+  div.container.well
+    = simple_form_for @practice, url: group_practice_path(group_id: @group.id, id: @practice.id), method: 'patch' do |f|
+      = f.input :practice_no, label: 'Número de práctica'
+      = f.input :name, label: 'Nombre'
+      = f.input :description, label: 'Descripción'
+      = f.button :submit, value: 'Guardar'

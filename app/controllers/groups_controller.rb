@@ -30,12 +30,14 @@ class GroupsController < ApplicationController
   def destroy
     group = Group.find(params[:id])
     group.destroy
-    # Alert deletion
+    flash[:notice] = "Borrado con éxito."
     redirect_to :groups
   end
 
   def update
-    binding.pry
+    group = Group.find(params[:id])
+    group.update_attributes(group_parameters)
+    redirect_to :groups
   end
 
   private

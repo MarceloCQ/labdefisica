@@ -44,13 +44,17 @@ class DbSetup < ActiveRecord::Migration
       t.belongs_to :course, index: true
       t.timestamps
     end
+    create_table :grades do |t|
+      t.belongs_to :user, index: true
+      t.belongs_to :practice, index: true
+      t.integer :grade
+    end
 
     create_table :practices do |t|
       t.belongs_to :group, index: true
-      t.belongs_to :user, index: true
-      t.integer :grade
       t.string :name
       t.integer :practice_no
+      t.text :description
     end
   end
 end

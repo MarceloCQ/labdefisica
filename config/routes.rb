@@ -21,14 +21,15 @@ Rails.application.routes.draw do
   get 'user/home', to: 'user#home', as: :user_home_path
 
   # Groups 
-  resources :groups
-
+  resources :groups do
+    resources :practices
+    get 'practices/grades/:id', to: 'practices#grades', as: :practice_grade
+    patch 'practices/grades/:id', to: 'practices#register_grades', as: :register_grades
+  end
+  
   # Timetables
   resources :timetables
-  
-  # Practices
-  resources :groups 
-  
+
   # Alumni
   get 'student/home', to: 'alumni#home', as: :alumni_home_path
   patch 'student/register_group/:id', to: 'alumni#register_group', as: :student_registration
