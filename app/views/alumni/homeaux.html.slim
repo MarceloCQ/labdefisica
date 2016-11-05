@@ -5,15 +5,20 @@ section#alumni-home
       h3 Tecnológico de Monterrey Campus Monterrey
       div.container.text-center
           p#alumni-top-message Bienvenido alumno
-          div.container
-          / table.table.table-striped
-          /   thead
-          /     tr
-          /       th = 'Matrícula'
-          /       th = 'Nombre'
-          /       th = 'Calificación'
-          /     - @group.practices.each do |p|
-          /       tr
-          /         td = p.practice_no
-          /         td = p.name
-          /         td = p.description
+          h1.center Calificaciones
+          hr
+          #search-div.form-group.has-feedback
+            input.search-input.form-control placeholder="Buscar" type="text" /
+            i.glyphicon.glyphicon-search.form-control-feedback
+          table class=["table table-striped"]
+            thead
+              tr 
+                th = "Nombre Practica"
+                th = "Calificacion"
+            tbody
+            /- @groups.each do |group|
+            - @grades.each do |group|
+              tr
+                / td = @practices.find(group.group_id)
+                td = group.practice_id
+                td = group.grade

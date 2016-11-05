@@ -1,9 +1,12 @@
 class AlumniController < ApplicationController
   before_filter :verify_user
   def home
+    @groups = Group.all
+    @grades = Grade.where(user_id: current_user.id)
+    @practices = Practice.where(group_id: current_user.group_id)
     if current_user.group_id != nil
         render :action => "homeaux"
-        @group = Group.find(current_user.id)
+        
     end
     @teacher = Teacher.all
     @courses = Course.all
