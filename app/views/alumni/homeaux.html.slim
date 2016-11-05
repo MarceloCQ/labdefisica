@@ -17,8 +17,12 @@ section#alumni-home
                 th = "Calificacion"
             tbody
             /- @groups.each do |group|
-            - @grades.each do |group|
+            / - @grades.each do |group|
+            /   tr
+            /     / td = @practices.find(group.group_id)
+            /     td = group.practice_id
+            /     td = group.grade
+            - @user.grades.each do |grade|
               tr
-                / td = @practices.find(group.group_id)
-                td = group.practice_id
-                td = group.grade
+                td = grade.practice.name
+                td = grade.grade
