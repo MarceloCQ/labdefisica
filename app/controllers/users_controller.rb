@@ -30,10 +30,14 @@ class UsersController < ApplicationController
 
   def update
     user = User.find(params[:id])
-    if user.update_attributes(user_update_parameters)
-      
+    user.group_id = user_update_parameters[:group_id]
+    user.role = 1 if user_update_parameters[:role] == 'Alumno'
+    user.role = 2 if user_update_parameters[:role] == 'Instructor'
+    user.role = 3 if user_update_parameters[:role] == 'Administrador'
+    if user.save
+      flash[:notice] =  "Usuario editado exitosamente"
     else
-
+      flash[:alert] =  "Hubo un error. Favor de volver a intentar."
     end
     redirect_to :users
   end
