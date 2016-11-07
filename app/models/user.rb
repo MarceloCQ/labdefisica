@@ -44,6 +44,7 @@ class User < ActiveRecord::Base
 
   before_create :mail_construction
 
+
   def full_name
     "#{name} #{last_name}"
   end
@@ -57,6 +58,7 @@ class User < ActiveRecord::Base
     return Group.where(user_id: self.id) if self.role == 2
     Group.all
   end
+
 
   private
 
