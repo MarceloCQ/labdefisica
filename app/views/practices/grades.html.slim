@@ -1,0 +1,25 @@
+section#practice-edit
+  ol.breadcrumb
+    li
+      = link_to 'Grupos', groups_path
+    li
+      = link_to "Grupo #{@group.id}", group_path(id: @group.id)
+    li.active = "Práctica #{@practice.id}"
+  div.container
+    h1.center = "Practica #{@practice.practice_no}"
+    table.table.table-striped
+      thead
+        tr
+          th = 'Matrícula'
+          th = 'Nombre'
+          th = 'Calificación'
+      tbody
+        = simple_form_for @practice, url: group_register_grades_path do |f|
+          - @practice.grades.each do |grade|
+            = f.fields_for "grades[]", grade do |tmp|
+              tr
+                td = grade.user.student_id
+                td = "#{grade.user.name} #{grade.user.last_name}"
+                td
+                  = tmp.input :grade, label: false
+          = f.submit class: 'btn btn-default', value: 'Guardar cambios'

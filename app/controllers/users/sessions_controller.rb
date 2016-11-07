@@ -15,7 +15,7 @@ class Users::SessionsController < Devise::SessionsController
     yield resource if block_given?
     # respond_with resource, location: after_sign_in_path_for(resource)
     return redirect_to :alumni_home_path if current_user.role == 1
-    return redirect_to :instructors_home_path if current_user.role == 2
+    return redirect_to :groups if current_user.role == 2
     redirect_to :admin_home_path if current_user.role == 3
   end
 

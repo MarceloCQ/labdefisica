@@ -1,5 +1,5 @@
 class GroupsController < ApplicationController
-  before_action :verify_user, only: [:new, :edit, :create, :destroy, :show]
+  before_action :verify_user, only: [:new, :edit, :create, :destroy]
 
   def new
     @group = Group.new
@@ -10,7 +10,7 @@ class GroupsController < ApplicationController
   end
 
   def show 
-    # @group = Group.find(params["id"])
+    @group = Group.find(params["id"])
   end
 
   def create
@@ -24,13 +24,19 @@ class GroupsController < ApplicationController
   end
 
   def edit
-   # @grupo = Grupo.find(params["id"])
+    @group = Group.find(params["id"])
   end
 
   def destroy
     group = Group.find(params[:id])
     group.destroy
-    # Alert deletion
+    flash[:notice] = "Borrado con éxito."
+    redirect_to :groups
+  end
+
+  def update
+    group = Group.find(params[:id])
+    group.update_attributes(group_parameters)
     redirect_to :groups
   end
 

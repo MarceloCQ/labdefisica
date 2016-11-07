@@ -19,6 +19,7 @@ class Group < ActiveRecord::Base
   
   has_many :records, inverse_of: :group
   has_many :students, class_name: 'User'
+  has_many :practices, inverse_of: :group
 
   validates :timetable, presence: true
   validates :course, presence: true

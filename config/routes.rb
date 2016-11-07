@@ -1,16 +1,14 @@
 Rails.application.routes.draw do
+  # Users
   devise_for :users, controllers: {
     sessions: 'users/sessions',
     registrations: 'users/registrations',
 
   }
-  resources :teachers
-  #root 'teachers#index'
-
+  
   devise_scope :user do
     root to: "users/sessions#new"
   end
-
 
   # Instructors
   get 'instructor/home', to: 'instructors#home', as: :instructors_home_path
@@ -19,18 +17,18 @@ Rails.application.routes.draw do
   scope "/admin" do
     resources :users
   end
-  get 'admin/home', to: 'admin#home', as: :admin_home_path
-  resources :groups
-
+  get 'admin/home', to: 'admin#home', as: :admin_home_path  
   get 'user/home', to: 'user#home', as: :user_home_path
 
-
+  # Groups 
+  resources :groups do
+    resources :practices
+    get 'practices/grades/:id', to: 'practices#grades', as: :practice_grade
+    patch 'practices/grades/:id', to: 'practices#register_grades', as: :register_grades
+  end
+  
   # Timetables
   resources :timetables
-  # get 'groups/index', to: 'groups#index', as: :groups_index
-  # get 'groups/new', to: 'groups#new', as: :new_group
-  # get 'groups/edit/:id', to: 'groups#edit', as: :edit_group
-  # get 'groups/show/:id', to: 'groups#show', as: :show_group
 
   # Alumni
   get 'student/home', to: 'alumni#home', as: :alumni_home_path

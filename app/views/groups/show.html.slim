@@ -1,0 +1,47 @@
+section#group-show
+  ol.breadcrumb
+    - if current_user.role == 3
+      li
+        = link_to :admin_home_path
+          | Inicio
+    li
+      = link_to 'Grupos', groups_path
+    li.active = "Grupo #{@group.id}"
+  div.container
+    = link_to new_group_practice_path(group_id: @group.id), id: 'add-group-btn', class: 'btn btn-default'
+      span Nueva práctica
+    h1.center = "Grupo #{@group.id}"
+    p
+      strong Salón
+      = " #{@group.classroom}"
+    p
+      strong Lugares
+      = " #{@group.seats}"
+
+    table.table.table-striped
+      thead
+        tr
+          th = "Número de práctica"
+          th = "Nombre de práctica"
+          th = "Descripción de práctica"
+          th = "Acción"
+      - @group.practices.each do |p|     
+          tr
+            td = p.practice_no
+            td = p.name
+            td = p.description
+            td
+              div.dropdown
+                button.btn.btn-default.dropdown-toggle aria-expanded="true" aria-haspopup="true" data-toggle="dropdown" type="button"
+                  span.glyphicon.glyphicon-cog       
+                  span.caret
+                ul.dropdown-menu aria-labelledby="dropdownMenu1" 
+                  li
+                    = link_to edit_group_practice_path(id: p.id, group_id: @group.id)
+                      span Editar
+                  li
+                    = link_to group_practice_grade_path(group_id: @group.id, id: p.id)
+                      span Calificar
+                  li
+                    = link_to group_practice_path(id: p.id, group_id: @group.id), method: :delete
+                      span Eliminar

@@ -34,8 +34,7 @@ class User < ActiveRecord::Base
   belongs_to :group, inverse_of: :students
   has_one :record, inverse_of: :user
   has_many :groups, inverse_of: :instructor
-
-  # validates :teacher_id, presence: true
+  has_many :grades, inverse_of: :user
 
   validates :student_id, presence: true
   validates :student_id, uniqueness: { case_sensitive: false }
@@ -44,6 +43,7 @@ class User < ActiveRecord::Base
 
   before_create :mail_construction
 
+  accepts_nested_attributes_for :grades, allow_destroy: true
 
   def full_name
     "#{name} #{last_name}"
