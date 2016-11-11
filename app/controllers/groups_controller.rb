@@ -6,6 +6,7 @@ class GroupsController < ApplicationController
   end
 
   def index
+    redirect_to :alumni_home_path if current_user.role == 1 && current_user.group_id != nil
     @groups = current_user.retrieve_groups
   end
 
