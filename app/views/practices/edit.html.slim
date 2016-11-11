@@ -8,7 +8,7 @@ section#practice-edit
   h1.center Editar Práctica
   div.container.well
     = simple_form_for @practice, url: group_practice_path(group_id: @group.id, id: @practice.id), method: 'patch' do |f|
-      = f.input :practice_no, label: 'Número de práctica',  { min: 1, max:40 }
+      = f.input :practice_no, label: 'Número de práctica',  input_html:{ min: 1, max:40 }
       = f.input :name, label: 'Nombre'
       = f.input :description, label: 'Descripción'
       = f.button :submit, value: 'Guardar'
