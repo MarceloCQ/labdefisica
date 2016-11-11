@@ -3,20 +3,20 @@
 en:
   devise:
     confirmations:
-      confirmed: "Your email address has been successfully confirmed."
-      send_instructions: "You will receive an email with instructions for how to confirm your email address in a few minutes."
+      confirmed: "Tu cuenta ha sido confirmada."
+      send_instructions: "Revisa tu correo institucional, te llegará un mensaje en unos minutos para confirmar tu cuenta."
       send_paranoid_instructions: "If your email address exists in our database, you will receive an email with instructions for how to confirm your email address in a few minutes."
     failure:
-      already_authenticated: "You are already signed in."
-      inactive: "Your account is not activated yet."
+      already_authenticated: "Ya has iniciado sesión"
+      inactive: "Tu cuenta aún no está activa"
       #invalid: "Invalid %{authentication_keys} or password."
       invalid: "Usuario o contraseña inválida."
       locked: "Your account is locked."
       last_attempt: "You have one more attempt before your account is locked."
-      not_found_in_database: "Invalid %{authentication_keys} or password."
-      timeout: "Your session expired. Please sign in again to continue."
+      not_found_in_database: "Usuario o contraseña inválida."
+      timeout: "Tu sesión ha expirado. Vuelve a iniciar sesión."
       unauthenticated: "Lo sentimos. Necesitas iniciar sesión antes de continuar."
-      unconfirmed: "You have to confirm your email address before continuing."
+      unconfirmed: "Tienes que confirmar tu cuenta antes para poder continuar."
     mailer:
       confirmation_instructions:
         subject: "Confirmation instructions"
@@ -31,10 +31,10 @@ en:
       success: "Successfully authenticated from %{kind} account."
     passwords:
       no_token: "You can't access this page without coming from a password reset email. If you do come from a password reset email, please make sure you used the full URL provided."
-      send_instructions: "You will receive an email with instructions on how to reset your password in a few minutes."
+      send_instructions: "Revisa tu correo institucional, te llegará un mensaje en unos minutos para cambiar tu contraseña."
       send_paranoid_instructions: "If your email address exists in our database, you will receive a password recovery link at your email address in a few minutes."
       updated: "Your password has been changed successfully. You are now signed in."
-      updated_not_active: "Your password has been changed successfully."
+      updated_not_active: "Tu contraseña ha sido cambiada correctamente."
     registrations:
       destroyed: "Bye! Your account has been successfully cancelled. We hope to see you again soon."
       signed_up: "Welcome! You have signed up successfully."
@@ -54,10 +54,10 @@ en:
       unlocked: "Your account has been unlocked successfully. Please sign in to continue."
   errors:
     messages:
-      already_confirmed: "was already confirmed, please try signing in"
+      already_confirmed: "Esta cuenta ya está confirmada. Intenta iniciar sesión."
       confirmation_period_expired: "needs to be confirmed within %{period}, please request a new one"
       expired: "has expired, please request a new one"
-      not_found: "not found"
+      not_found: "No se encontró."
       not_locked: "was not locked"
       not_saved:
         one: "1 error prohibited this %{resource} from being saved:"

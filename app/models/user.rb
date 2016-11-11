@@ -28,8 +28,8 @@ class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
-  
+         :recoverable, :rememberable, :trackable, :validatable, :confirmable
+
   belongs_to :teacher, inverse_of: :users
   belongs_to :group, inverse_of: :students
   has_one :record, inverse_of: :user
@@ -62,6 +62,6 @@ class User < ActiveRecord::Base
   private
 
   def mail_construction
-    self.email = "#{self.student_id}@itesm.mx"
+    self.email = "#{self.student_id.downcase}@itesm.mx"
   end
 end
