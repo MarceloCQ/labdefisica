@@ -9,7 +9,7 @@ section#alumni-home
       br
       label#name-lb Materia:
       
-      select.selectpicker.btn-primary#alumni-btn
+      select.selectpicker.btn-primary#alumni-btn 
         - @courses.each do |t|
           option value="#{t.id}" #{t.name}
         

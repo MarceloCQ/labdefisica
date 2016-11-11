@@ -10,5 +10,5 @@ section#group-edit-section
     = simple_form_for @group do |f|
       = f.association :instructor
       = f.association :timetable, label_method: :interpolate_day_time, label: 'Horario'
-      = f.input :seats, label: 'Lugares'
+      = f.input :seats,label: 'Lugares',input_html: { min: 1, max:40 }
       = f.button :submit, value: 'Guardar'
