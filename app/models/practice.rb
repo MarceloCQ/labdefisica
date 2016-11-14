@@ -4,7 +4,7 @@ class Practice < ActiveRecord::Base
   validates :group, presence: true
 
   after_create :create_grades
-
+ 
   private
 
   def create_grades
