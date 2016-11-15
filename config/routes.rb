@@ -8,6 +8,9 @@ Rails.application.routes.draw do
   }
 
   devise_scope :user do
+    authenticated :user do
+      root 'users/registrations#check_role', as: :authenticated_root
+    end
     root to: "users/sessions#new"
   end
 
