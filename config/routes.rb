@@ -14,6 +14,7 @@ Rails.application.routes.draw do
     root to: "users/sessions#new"
   end
 
+  get 'pruebas', to: 'users#prueba', as: :prueba
   # Instructors
   get 'instructor/home', to: 'instructors#home', as: :instructors_home_path
 
