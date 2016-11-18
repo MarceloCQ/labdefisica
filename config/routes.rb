@@ -16,7 +16,7 @@ Rails.application.routes.draw do
 
   get 'pruebas', to: 'users#prueba', as: :prueba
   # Instructors
-  get 'instructor/home', to: 'instructors#home', as: :instructors_home_path
+  #get 'instructor/home', to: 'instructors#home', as: :instructors_home_path
 
   # Admin
   scope "/admin" do
