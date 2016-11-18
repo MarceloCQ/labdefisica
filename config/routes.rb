@@ -31,6 +31,7 @@ Rails.application.routes.draw do
     get 'practices/grades/:id', to: 'practices#grades', as: :practice_grade
     patch 'practices/grades/:id', to: 'practices#register_grades', as: :register_grades
   end
+  resources :practices, only: [:index]
 
   # Timetables
   resources :timetables

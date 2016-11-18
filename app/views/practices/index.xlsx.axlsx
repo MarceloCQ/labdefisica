@@ -1,0 +1,8 @@
+wb = xlsx_package.workbook
+wb.add_worksheet(name: "Practices") do |sheet|
+	@users.each do |user|
+		user.grades.each do |practice|
+	    	sheet.add_row [user.id,user.name, practice.practice.name, practice.grade, practice.practice.group_id,user.teacher_id]
+	    end
+	  end
+end
