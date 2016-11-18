@@ -21,5 +21,5 @@ section#practice-edit
                 td = grade.user.student_id
                 td = "#{grade.user.name} #{grade.user.last_name}"
                 td
-                  = tmp.input :grade, label: false
+                  = tmp.input :grade, label: false, input_html: { min: 0, max: 100 }
           = f.submit class: 'btn btn-default', value: 'Guardar cambios'

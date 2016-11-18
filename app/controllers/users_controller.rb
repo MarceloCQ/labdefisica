@@ -14,7 +14,13 @@ class UsersController < ApplicationController
   end
 
   def create
-
+    u = User.new(user_create_parameters)
+    if u.save
+      flash[:notice] =  "Usuario guardado exitosamente"
+    else
+      flash[:alert] =  "Hubo un error. Vuelva a intentar"
+    end
+    redirect_to :users
   end
 
   def edit
@@ -42,6 +48,10 @@ class UsersController < ApplicationController
     redirect_to :users
   end
 
+  def prueba
+    @user = User.new
+  end
+
   private
 
   def verify_user
@@ -50,6 +60,10 @@ class UsersController < ApplicationController
 
   def user_update_parameters
     params.require("user").permit( :role, :group_id)
+  end
+
+  def user_create_parameters
+    params.require("user").permit( :role, :student_id, :name, :last_name, :teacher_id, :password, :password_confirmation)
   end
 
 end

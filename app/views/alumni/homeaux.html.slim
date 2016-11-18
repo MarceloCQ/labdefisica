@@ -1,0 +1,28 @@
+section#alumni-home 
+  div.vertical-center
+    div#alumni-header.container-full.text-center
+      //h1#mytittle[class=""] Sistema de Inscripciones de Laboratorio de Fisica
+      h3 Tecnológico de Monterrey Campus Monterrey
+      div.container.text-center
+          p#alumni-top-message Bienvenido alumno
+          h1.center Calificaciones
+          hr
+          #search-div.form-group.has-feedback
+            input.search-input.form-control placeholder="Buscar" type="text" /
+            i.glyphicon.glyphicon-search.form-control-feedback
+          table class=["table table-striped"]
+            thead
+              tr 
+                th = "Nombre Practica"
+                th = "Calificacion"
+            tbody
+            /- @groups.each do |group|
+            / - @grades.each do |group|
+            /   tr
+            /     / td = @practices.find(group.group_id)
+            /     td = group.practice_id
+            /     td = group.grade
+            - @user.grades.each do |grade|
+              tr
+                td = grade.practice.name
+                td = grade.grade

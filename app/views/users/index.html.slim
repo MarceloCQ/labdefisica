@@ -4,7 +4,7 @@ section#users-index-section
       a href="/admin/home"  Inicio
     li.active Usuarios
   div.container.center
-    = link_to new_user_registration_path
+    = link_to :prueba
       button.btn.btn-default#users-new-btn Agregar alumno
     h1 Usuarios
     hr
@@ -41,4 +41,3 @@ section#users-index-section
                     li
                       = link_to user_path(id: user.id), method: :delete 
                         span Eliminar
-
