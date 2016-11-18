@@ -49,6 +49,12 @@ class User < ActiveRecord::Base
     "#{name} #{last_name}"
   end
 
+  def role_name
+    return "Administrador" if self.role == 3
+    return "Instructor" if self.role == 2
+    return "Alumno" if self.role == 1
+  end
+
   def email_required?
     false
   end
@@ -58,6 +64,7 @@ class User < ActiveRecord::Base
     return Group.where(user_id: self.id) if self.role == 2
     Group.all
   end
+
 
   private
 

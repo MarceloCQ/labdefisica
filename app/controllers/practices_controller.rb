@@ -5,6 +5,15 @@ class PracticesController < ApplicationController
     @group = Group.find(params[:group_id])
   end
 
+def index
+  @practices = Practice.order(:practice_no)
+  @users = User.all
+  respond_to do |format|
+    format.html
+    format.xlsx
+  end
+end
+  
   def create
     practice = Practice.new(practice_parameters)
     practice.group = Group.find(params[:group_id])
