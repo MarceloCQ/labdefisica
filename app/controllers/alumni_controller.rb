@@ -5,7 +5,6 @@ class AlumniController < ApplicationController
       @user = User.find(current_user.id)
       render :action => "homeaux"      
     end
-    @teacher = Teacher.all
     @courses = Course.all
   end
 
@@ -20,6 +19,13 @@ class AlumniController < ApplicationController
     practices = group.practices
     practices.each do |p|
       Grade.create(practice_id: p.id, user_id: current_user.id)
+    end
+  end
+
+  def get_teachers
+    @teachers = Course.find(params[:course_id]).teachers
+    respond_to do |format|
+      format.json { render json: @teachers }
     end
   end
 

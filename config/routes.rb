@@ -38,5 +38,6 @@ Rails.application.routes.draw do
 
   # Alumni
   get 'student/home', to: 'alumni#home', as: :alumni_home_path
+  get 'student/getteachers', to: 'alumni#get_teachers'
   patch 'student/register_group/:id', to: 'alumni#register_group', as: :student_registration
 end

@@ -1,7 +1,6 @@
 section#alumni-home 
   div.vertical-center
     div#alumni-header.container-full.text-center
-      //h1#mytittle[class=""] Sistema de Inscripciones de Laboratorio de Fisica
       h3 Tecnológico de Monterrey Campus Monterrey
       div.container.text-center
           p#alumni-top-message Bienvenido alumno, elija su materia y maestro:
@@ -17,15 +16,17 @@ section#alumni-home
       br
       br
       br
-      label#name-lb Maestro:
-      select.selectpicker.btn-primary#alumni-btn
-        - @teacher.each do |t|
-          option value="#{t.id}" #{t.name} #{t.last_name}
+      div.teacher-select
+        label#name-lb Maestro:
+        select.selectpicker.btn-primary#alumni-btn
+          - @teacher.each do |t|
+            option value="#{t.id}" #{t.name} #{t.last_name}
       br
       br
       br
       br
       br
       br
-      = link_to :groups, id: 'register-btn', class: 'btn btn-primary'
-        h3 Siguiente
+      div.reg-btn-div
+        = link_to :groups, id: 'register-btn', class: 'btn btn-primary'
+          h3 Siguiente
