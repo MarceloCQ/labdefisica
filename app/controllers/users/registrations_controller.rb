@@ -16,11 +16,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
       if resource.active_for_authentication?
         set_flash_message! :notice, :signed_up
         sign_up(resource_name, resource)
-        check_role
+        #check_role
       else
         set_flash_message! :notice, :"signed_up_but_#{resource.inactive_message}"
         expire_data_after_sign_in!
-        check_role
+        #check_role
       end
     else
       clean_up_passwords resource
@@ -30,9 +30,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def check_role
-    return redirect_to :alumni_home_path if current_user.role == 1
-    return redirect_to :groups if current_user.role == 2
-    redirect_to :admin_home_path if current_user.role == 3
+  
   end
 
   # GET /resource/edit

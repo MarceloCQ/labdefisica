@@ -63,7 +63,7 @@ class User < ActiveRecord::Base
   def retrieve_groups
     return Group.all if self.role == 3
     return Group.where(user_id: self.id) if self.role == 2
-    return Group.where(course_id: self.course_id).map { |g| g.availability? }
+    return Group.where(course_id: self.course_id).to_a.keep_if {|g| g.availability? }
   end
 
 

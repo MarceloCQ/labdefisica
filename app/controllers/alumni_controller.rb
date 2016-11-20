@@ -1,12 +1,15 @@
 class AlumniController < ApplicationController
   before_filter :verify_user
   def home
-    @user = User.find(current_user.id)
-    if current_user.group_id != nil
-      render :action => "homeaux"      
+    if current_user.course == nil
+      @user = User.find(current_user.id)
+      if current_user.group_id != nil
+        render :action => "homeaux"
+      end
+      @courses = Course.all
+    else
+      redirect_to :groups_path
     end
-    @courses = Course.all
-
   end
 
   def register_group
@@ -32,7 +35,8 @@ class AlumniController < ApplicationController
 
   def update
     current_user.update(course_id: params[:course_id], teacher_id: params[:teacher_id])
-    redirect_to :alumni_home_path
+    #redirect_to :alumni_home_path
+    redirect_to :groups_path
   end
 
   def user_update_parameters

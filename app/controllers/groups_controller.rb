@@ -6,10 +6,13 @@ class GroupsController < ApplicationController
   end
 
   def index
+    if current_user == 1 && current_user.group
+      redirect_to :alumni_home_path
+    end
     @groups = current_user.retrieve_groups
   end
 
-  def show 
+  def show
     @group = Group.find(params["id"])
   end
 
