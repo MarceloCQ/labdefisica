@@ -1,6 +1,6 @@
 #alumni-home{
   a:hover, a:visited, a:link, a:active{ color: #FFF; }
-  #alumni-btn {
+  .alumni-btn {
     width: 33%; 
     min-width: 300px;
     font-size: xx-large;
@@ -15,13 +15,22 @@
     font-size: 20px;
   }
 
-  #teacher-select {
+  #teacher-select-div {
     display: none;
   }
 
   #reg-btn-div {
     display: none;
 
+  }
+
+  .registration {
+      width: 50%;
+      margin: 0 auto;
+      min-width: 300px;
+      margin-top: 3%;
+      
+     
   }
 
 }
