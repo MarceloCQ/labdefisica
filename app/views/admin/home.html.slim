@@ -12,19 +12,14 @@ section#admin-home
       h3 Tecnológico de Monterrey Campus Monterrey
       div.container.text-center
           p#admin-top-message Bienvenido coordinador, elija una de las siguientes opciones:
-      = link_to groups_path, class: 'btn btn-primary admin-btn'
-          p Grupos
+      = link_to 'Grupos', groups_path, class: 'btn btn-primary admin-btn'
       br
-      br
-      = link_to users_path, class: 'btn btn-primary admin-btn'
-          p Usuarios 
-      br
+      = link_to 'Usuarios', users_path, class: 'btn btn-primary admin-btn'
       br
       =link_to 'Maestros', :teachers, class: 'btn btn-primary admin-btn'
       br
-      br
       =link_to 'Cursos', :courses, class: 'btn btn-primary admin-btn'
       br
+      = link_to 'Descargar Excel', practices_path, class: 'btn btn-default admin-btn'
       br
-      = link_to practices_path, class: 'btn btn-primary admin-btn'
-          p Descargar Excel
+      = link_to 'Borrar alumnos', :restart, class: 'btn btn-danger admin-btn', method: :delete

@@ -4,6 +4,7 @@
 #
 #  id                     :integer          not null, primary key
 #  teacher_id             :integer
+#  group_id               :integer
 #  student_id             :string           not null
 #  mail                   :string
 #  role                   :integer          default(1)
@@ -22,6 +23,9 @@
 #  last_sign_in_at        :datetime
 #  current_sign_in_ip     :inet
 #  last_sign_in_ip        :inet
+#  confirmation_token     :string
+#  confirmed_at           :datetime
+#  confirmation_sent_at   :datetime
 #
 
 class User < ActiveRecord::Base
@@ -32,7 +36,6 @@ class User < ActiveRecord::Base
 
   belongs_to :teacher, inverse_of: :users
   belongs_to :group, inverse_of: :students
-  has_one :record, inverse_of: :user
   has_many :groups, inverse_of: :instructor
   has_many :grades, inverse_of: :user
 

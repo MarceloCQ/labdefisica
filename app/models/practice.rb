@@ -1,3 +1,14 @@
+# == Schema Information
+#
+# Table name: practices
+#
+#  id          :integer          not null, primary key
+#  group_id    :integer
+#  name        :string
+#  practice_no :integer
+#  description :text
+#
+
 class Practice < ActiveRecord::Base
   belongs_to :group, inverse_of: :practices
   has_many :grades, inverse_of: :practice
