@@ -3,12 +3,13 @@ class AlumniController < ApplicationController
   def home
     if current_user.course == nil
       @user = User.find(current_user.id)
-      if current_user.group_id != nil
-        render :action => "homeaux"
-      end
       @courses = Course.all
-    else
+    elsif current_user.group == nil
       redirect_to :groups_path
+    else
+      @user = User.find(current_user.id)
+      @courses = Course.all
+      render :action => "homeaux"
     end
   end
 
