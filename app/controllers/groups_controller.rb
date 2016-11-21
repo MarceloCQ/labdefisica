@@ -50,6 +50,6 @@ class GroupsController < ApplicationController
   end
 
   def group_parameters
-    params.require("group").permit(:timetable_id, :classroom, :seats, :user_id)
+    params.require("group").permit(:timetable_id, :classroom, :seats, :user_id, :course_id)
   end
 end

@@ -1,28 +1,28 @@
 section#alumni-home 
-  div.vertical-center
-    div#alumni-header.container-full.text-center
-      //h1#mytittle[class=""] Sistema de Inscripciones de Laboratorio de Fisica
-      h3 Tecnológico de Monterrey Campus Monterrey
-      div.container.text-center
-          p#alumni-top-message Bienvenido alumno
-          h1.center Calificaciones
-          hr
-          #search-div.form-group.has-feedback
-            input.search-input.form-control placeholder="Buscar" type="text" /
-            i.glyphicon.glyphicon-search.form-control-feedback
-          table class=["table table-striped"]
-            thead
-              tr 
-                th = "Nombre Practica"
-                th = "Calificacion"
-            tbody
-            /- @groups.each do |group|
-            / - @grades.each do |group|
-            /   tr
-            /     / td = @practices.find(group.group_id)
-            /     td = group.practice_id
-            /     td = group.grade
-            - @user.grades.each do |grade|
-              tr
-                td = grade.practice.name
-                td = grade.grade
+  div.vertical-center   
+    div.container
+      div.text-center
+        h3 Tecnológico de Monterrey Campus Monterrey
+        p#alumni-top-message Bienvenido alumno
+        h1.center Calificaciones
+        hr
+      div
+        p <b> NumGpo: </b> #{@user.group.id}
+        p <b> Lugar: </b> #{@user.group.classroom}
+        p <b> Horario: </b> #{@user.group.timetable.interpolate_day_time}
+        p <b> Instructor: </b> #{@user.group.instructor.full_name}
+
+      br
+      #search-div.form-group.has-feedback
+        input.search-input.form-control placeholder="Buscar" type="text" /
+        i.glyphicon.glyphicon-search.form-control-feedback
+      table class=["table table-striped"]
+        thead
+          tr 
+            th = "Nombre Practica"
+            th = "Calificacion"
+        tbody
+        - @user.grades.each do |grade|
+          tr
+            td = grade.practice.name
+            td = grade.grade
