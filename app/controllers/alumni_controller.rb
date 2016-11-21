@@ -13,11 +13,24 @@ class AlumniController < ApplicationController
     end
   end
 
+  def calificaciones
+      @user = User.find(current_user.id)
+      @courses = Course.all
+      render :action => "homeaux"
+  end
+
   def register_group
     group = Group.find(params[:id])
-    current_user.update(group_id: group.id)
-    create_grades(group)
-    redirect_to :alumni_home_path
+    if group.availability?
+      flash[:notice] =  "Registrado en grupo exitosamente."
+      current_user.update(group_id: group.id)
+      create_grades(group)
+      RegistroAlumnoMailer.registro_laboratorio(current_user).deliver
+      redirect_to :alumni_home_path
+    else
+      flash[:alert] =  "El grupo se lleno. Vuelva a intentar."
+      redirect_to :groups_path
+    end
   end
 
   def create_grades(group)
@@ -48,4 +61,5 @@ class AlumniController < ApplicationController
   def verify_user
     render file: 'public/401.html', status: :unauthorized if current_user.role != 1
   end
+
 end
