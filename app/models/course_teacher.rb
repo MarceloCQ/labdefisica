@@ -14,5 +14,5 @@ class CourseTeacher < ActiveRecord::Base
   belongs_to :teacher, inverse_of: :course_teachers
 
   validates :course_id, presence: true
-  validates :teacher_id, presence: true
+  # validates :teacher_id, presence: true
 end

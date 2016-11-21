@@ -36,6 +36,12 @@ Rails.application.routes.draw do
   # Timetables
   resources :timetables
 
+  # Courses
+  resources :courses
+
+  # Teachers
+  resources :teachers
+
   # Alumni
   get 'student/home', to: 'alumni#home', as: :alumni_home_path
   patch 'student/register_group/:id', to: 'alumni#register_group', as: :student_registration

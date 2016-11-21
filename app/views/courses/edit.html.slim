@@ -1,0 +1,12 @@
+section#course-edit-section
+  ol.breadcrumb
+    li
+      = link_to 'Inicio', :admin_home_path
+    li
+      = link_to 'Cursos', :courses
+    li.active Editar Curso
+  h1.center Editar Curso
+  div.container.well
+    = simple_form_for @course do |f|
+      = f.input :name
+      = f.button :submit, value: 'Guardar'

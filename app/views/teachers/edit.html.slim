@@ -1,0 +1,14 @@
+section#teacher-edit-section
+  ol.breadcrumb
+    li
+      = link_to 'Inicio', :admin_home_path
+    li
+      = link_to 'Maestros', :teachers
+    li.active Editar Maestro
+  h1.center Editar Maestro
+  div.container.well
+    = simple_form_for @teacher do |f|
+      = f.input :name, label: 'Nombre'
+      = f.input :last_name, label: 'Apellido'
+      = f.association :courses, as: :check_boxes, include_blank: false
+      = f.button :submit, value: 'Guardar'

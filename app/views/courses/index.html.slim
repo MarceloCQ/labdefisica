@@ -1,13 +1,13 @@
-section#teachers-index
+section#courses-index
   ol.breadcrumb
     li
       = link_to 'Inicio', :admin_home_path
-    li.active Maestros
+    li.active Cursos
   div.container
     - if @current_user.role == 3
-      = link_to :new_teacher, id: 'add-teacher-btn', class: 'btn btn-default'
-        span Nuevo maestro
-    h1.center Maestros
+      = link_to :new_course, id: 'add-teacher-btn', class: 'btn btn-default'
+        span Nuevo curso
+    h1.center Cursos
     hr
     #search-div.form-group.has-feedback
       input.search-input.form-control placeholder="Buscar" type="text" /
@@ -16,13 +16,11 @@ section#teachers-index
       thead
         tr 
           th = "Nombre"
-          th = "Apellido"
           th = "Acción"
       tbody
-      - @teachers.each do |t|
+      - @courses.each do |c|
         tr
-          td = t.name
-          td = t.last_name
+          td = c.name
           td
             div.dropdown
               button.btn.btn-default.dropdown-toggle aria-expanded="true" aria-haspopup="true" data-toggle="dropdown" type="button"
@@ -30,8 +28,8 @@ section#teachers-index
                 span.caret
               ul.dropdown-menu aria-labelledby="dropdownMenu1"
                 li
-                  = link_to edit_teacher_path(id: t.id)
+                  = link_to edit_course_path(id: c.id)
                     span Editar
                 li
-                  = link_to teacher_path(id: t.id), method: :delete 
+                  = link_to course_path(id: c.id), method: :delete 
                     span Eliminar
