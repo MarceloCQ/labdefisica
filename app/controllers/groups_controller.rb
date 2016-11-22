@@ -11,9 +11,9 @@ class GroupsController < ApplicationController
     elsif current_user.role == 1 && current_user.group
         redirect_to :alumni_grades
     elsif current_user.role == 1 && !current_user.group
-        render file: 'public/group_alumni_error.html', status: :unauthorized 
-      @groups = current_user.retrieve_groups
+        render file: 'public/group_alumni_error.html', status: :unauthorized
     end
+    @groups = current_user.retrieve_groups
   end
 
   def show
