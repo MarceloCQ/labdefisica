@@ -9,7 +9,7 @@ Rails.application.routes.draw do
 
   devise_scope :user do
     authenticated :user do
-      root 'users/registrations#check_role', as: :authenticated_root
+      root 'users/sessions#check_role', as: :authenticated_root
     end
     root to: "users/sessions#new"
   end
@@ -44,8 +44,13 @@ Rails.application.routes.draw do
 
   # Alumni
   get 'student/home', to: 'alumni#home', as: :alumni_home_path
+  get 'student/get_teachers', to: 'alumni#get_teachers'
+  put 'student/update', to: 'alumni#update'
   patch 'student/register_group/:id', to: 'alumni#register_group', as: :student_registration
 
   # Delete students
-  delete 'restart', to: 'admin#delete_students', as: :restart 
+  delete 'restart', to: 'admin#delete_students', as: :restart
+  
+  # Groups
+  get 'groups', to: 'groups#index', as: :groups_path
 end

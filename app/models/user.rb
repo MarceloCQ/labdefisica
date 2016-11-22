@@ -35,6 +35,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, :confirmable
 
   belongs_to :teacher, inverse_of: :users
+  belongs_to :course, inverse_of: :users
   belongs_to :group, inverse_of: :students
   has_many :groups, inverse_of: :instructor
   has_many :grades, inverse_of: :user
@@ -65,7 +66,7 @@ class User < ActiveRecord::Base
   def retrieve_groups
     return Group.all if self.role == 3
     return Group.where(user_id: self.id) if self.role == 2
-    Group.all
+    return Group.where(course_id: self.course_id).to_a.keep_if {|g| g.availability? }
   end
 
 
@@ -74,4 +75,7 @@ class User < ActiveRecord::Base
   def mail_construction
     self.email = "#{self.student_id.downcase}@itesm.mx"
   end
+
+
+
 end

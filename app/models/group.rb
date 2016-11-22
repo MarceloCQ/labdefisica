@@ -27,4 +27,9 @@ class Group < ActiveRecord::Base
 
   validates :classroom, presence: true
   validates :seats, presence: true
+
+  def availability?
+    self.students.count < self.seats
+  end
+  
 end

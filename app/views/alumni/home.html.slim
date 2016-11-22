@@ -1,31 +1,21 @@
-section#alumni-home 
-  div.vertical-center
-    div#alumni-header.container-full.text-center
-      //h1#mytittle[class=""] Sistema de Inscripciones de Laboratorio de Fisica
+section#alumni-home
+  div.container
+    div.text-center
       h3 Tecnológico de Monterrey Campus Monterrey
-      div.container.text-center
-          p#alumni-top-message Bienvenido alumno, elija su materia y maestro:
-      br
-      br
-      label#name-lb Materia:
-      
-      select.selectpicker.btn-primary#alumni-btn 
-        - @courses.each do |t|
-          option value="#{t.id}" #{t.name}
-        
-      br
-      br
-      br
-      br
-      label#name-lb Maestro:
-      select.selectpicker.btn-primary#alumni-btn
-        - @teacher.each do |t|
-          option value="#{t.id}" #{t.name} #{t.last_name}
-      br
-      br
-      br
-      br
-      br
-      br
-      = link_to :groups, id: 'register-btn', class: 'btn btn-primary'
-        h3 Siguiente
+      p Bienvenido alumno, elija su materia y maestro:
+    div.well.registration
+      = form_for @user, url: {action: "update"}, html: {method: "put"} do |f| 
+        .form-group
+          label for="course-select"  Materias:
+          select#course-select.form-control name='course_id'
+            option disabled="disabled"  selected="selected" value=""  Selecciona una materia
+            - @courses.each do |t|
+              option value="#{t.id}" #{t.name}
+
+        .form-group#teacher-select-div
+          label for="teacher-select"  Maestros:
+          select#teacher-select.form-control name='teacher_id'
+
+        div.text-center
+          div#reg-btn-div
+            input type='submit' value='Siguiente' class='btn btn-default'

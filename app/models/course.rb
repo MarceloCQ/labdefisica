@@ -9,6 +9,7 @@
 #
 
 class Course < ActiveRecord::Base
+	has_many :users, inverse_of: :course
   has_many :groups, inverse_of: :course
   has_many :course_teachers, inverse_of: :course
   has_many :teachers, through: :course_teachers, inverse_of: :courses

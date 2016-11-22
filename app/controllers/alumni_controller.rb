@@ -1,12 +1,15 @@
 class AlumniController < ApplicationController
   before_filter :verify_user
   def home
-    if current_user.group_id != nil
+    if current_user.course == nil
       @user = User.find(current_user.id)
-      render :action => "homeaux"      
+      if current_user.group_id != nil
+        render :action => "homeaux"
+      end
+      @courses = Course.all
+    else
+      redirect_to :groups_path
     end
-    @teacher = Teacher.all
-    @courses = Course.all
   end
 
   def register_group
@@ -21,6 +24,23 @@ class AlumniController < ApplicationController
     practices.each do |p|
       Grade.create(practice_id: p.id, user_id: current_user.id)
     end
+  end
+
+  def get_teachers
+    @teachers = Course.find(params[:course_id]).teachers
+    respond_to do |format|
+      format.json { render json: @teachers }
+    end
+  end
+
+  def update
+    current_user.update(course_id: params[:course_id], teacher_id: params[:teacher_id])
+    #redirect_to :alumni_home_path
+    redirect_to :groups_path
+  end
+
+  def user_update_parameters
+    params.require("user").permit( :teacher_id, :course_id)
   end
 
 
