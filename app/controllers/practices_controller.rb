@@ -6,8 +6,9 @@ class PracticesController < ApplicationController
   end
 
 def index
-  @practices = Practice.order(:practice_no)
+  @practices = Practice.order(:practice_no) 
   @users = User.all
+  @groups = Group.all
   respond_to do |format|
     format.html
     format.xlsx
