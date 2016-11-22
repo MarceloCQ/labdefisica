@@ -6,10 +6,14 @@ class GroupsController < ApplicationController
   end
 
   def index
-    if current_user == 1 && current_user.group
-      redirect_to :alumni_home_path
+    if current_user.role == 1 && !current_user.group && current_user.course
+        @groups = current_user.retrieve_groups
+    elsif current_user.role == 1 && current_user.group
+        redirect_to :alumni_grades
+    elsif current_user.role == 1 && !current_user.group
+        render file: 'public/group_alumni_error.html', status: :unauthorized 
+      @groups = current_user.retrieve_groups
     end
-    @groups = current_user.retrieve_groups
   end
 
   def show
@@ -50,6 +54,6 @@ class GroupsController < ApplicationController
   end
 
   def group_parameters
-    params.require("group").permit(:timetable_id, :classroom, :seats, :user_id)
+    params.require("group").permit(:timetable_id, :classroom, :seats, :user_id, :course_id)
   end
 end

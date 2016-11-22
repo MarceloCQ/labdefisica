@@ -11,5 +11,6 @@ div class="container well"
     = f.association :instructor, label_method: :full_name, label: "Instructor", collection: User.all.where(role: 2)
     = f.input :seats, label: "Lugares", input_html: { min: 1 }
     = f.input :classroom, label: "Salón"
+    = f.association :course, label_mehtod: :name, label: "Materia"
     div class="center"
     	= f.button :submit, value: "Aceptar"

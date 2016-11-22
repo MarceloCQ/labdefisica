@@ -16,21 +16,25 @@ section#groups-index
       i.glyphicon.glyphicon-search.form-control-feedback
     table class=["table table-striped"]
       thead
-        tr 
+        tr
+          th = "Num. Gpo" 
           th = "Salon"
           th = "Lugares"
           th = "Día"
           th = "Horario"
           th = "Instructor"
+          th = "Materia"
           th = "Acción"
       tbody
       - @groups.each do |group|
         tr
+          td = group.id
           td = group.classroom
           td = group.seats
           td = group.timetable.day_i18n
           td = group.timetable.start_time.strftime("%H:%M")
           td = group.instructor.name
+          td = group.course.name
           td
             - if @current_user.role == 3
               div.dropdown

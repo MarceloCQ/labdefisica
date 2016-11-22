@@ -11,4 +11,5 @@ section#group-edit-section
       = f.association :instructor
       = f.association :timetable, label_method: :interpolate_day_time, label: 'Horario'
       = f.input :seats,label: 'Lugares',input_html: { min: 1, max:40 }
+      = f.association :course, label_mehtod: :name, label: "Materia", selected: @group.course_id
       = f.button :submit, value: 'Guardar'
