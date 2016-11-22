@@ -16,11 +16,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
       if resource.active_for_authentication?
         set_flash_message! :notice, :signed_up
         sign_up(resource_name, resource)
-        #check_role
+        redirect_to :new_user_session
       else
         set_flash_message! :notice, :"signed_up_but_#{resource.inactive_message}"
         expire_data_after_sign_in!
-        #check_role
+        redirect_to :new_user_session
       end
     else
       clean_up_passwords resource
@@ -30,7 +30,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def check_role
-  
+
   end
 
   # GET /resource/edit
