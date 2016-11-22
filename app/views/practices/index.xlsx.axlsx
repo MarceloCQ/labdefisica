@@ -6,3 +6,27 @@ wb.add_worksheet(name: "Practices") do |sheet|
 	    end
 	  end
 end
+
+wb = xlsx_package.workbook
+styles = wb.styles
+header = styles.add_style(:bg_color => '00', :fg_color => 'FF', :b => true)
+@groups.each do |group|
+	wb.add_worksheet(name: "Grupo #{group.id}") do |sheet|
+		headers = ["Matricula", "Nombre"]
+		@practices.each do |p|
+			headers.push(p.name)
+		end
+		sheet.add_row headers, :style => header
+
+		data = []
+		group.students.each do |student|
+			practices=[]
+			student.grades.each do |practice|
+				practices.push(practice.grade)
+			end
+			data = [student.id, student.name]+practices
+		end
+		sheet.add_row data
+
+  	end
+end
